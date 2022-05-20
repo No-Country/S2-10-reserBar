@@ -2,7 +2,7 @@
 
 ## Description
 
-This our my project for the NoCountry program.
+This is our my project for the NoCountry program.
 It is booking app made with React and Node Js.
 
 ## Built with
