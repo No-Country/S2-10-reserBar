@@ -1,8 +1,8 @@
 const express = require("express");
 const routes = express.Router();
 const usersControllers = require("../controllers/usersControllers");
-const registerMiddleware = require("../middlewares/users/registerMiddleware");
-const loginMiddleware = require("../middlewares/users/loginMiddleware");
+const registerMiddleware = require("../middlewares/users/registerValidations");
+const loginMiddleware = require("../middlewares/users/loginValidations");
 const verifyToken = require("../middlewares/verifyToken");
 
 routes.put("/:id", verifyToken, usersControllers.editOneUser);
