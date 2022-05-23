@@ -1,7 +1,9 @@
 const Users = require("../models/Users");
+const Bares = require("../models/Bares");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const { findOne } = require("../models/Bares");
 
 const usersControllers = {
     register: async (req, res) => {
@@ -151,6 +153,30 @@ const usersControllers = {
             res.status(404).send("Error consulta db home");
         }
     },
+    reservas: async (req, res) => {
+        try {
+            const id = { _id: req.params.id };
+
+            const user = await Users.findById(id);
+            const reservas = user.my_reserve;
+            const bar = await Bares.findById(reservas);
+            // const bar = barId.name
+            let barName = bar.name;
+            let barEmail = bar.email;
+            console.log(barName);
+            return res.status(200).json({
+                total: reservas.length,
+                reservas: reservas.map(
+                    (bar) =>
+                        `Reserva hecha en ${barName}. Contacto: ${barEmail}`
+                ),
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(404).send("Error consulta db home");
+        }
+    },
+
     // Agregar logout
 };
 

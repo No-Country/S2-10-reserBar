@@ -17,4 +17,8 @@ routes.post("/login", loginMiddleware, usersControllers.login);
 
 routes.delete("/:id", verifyToken, usersControllers.deleteOneUser);
 
+routes.get("/:id/reservas", usersControllers.reservas);
+
+
+
 module.exports = routes;

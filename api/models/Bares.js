@@ -6,21 +6,21 @@ const BaresSchema = new monogoose.Schema(
 
         password: { type: String, required: true },
 
+        email: { type: String, unique: true, required: true },
+
         location: { type: String, required: true },
 
         description: { type: String, unique: true, required: true },
 
-        photos: [String] ,
+        photos: [String],
 
-        // reserves: {
-        //     type: [
-        //         {
-        //             type: monogoose.Schema.Types.ObjectId,
-        //             ref: "Users",
-        //         },
-        //     ],
-        //     validate: [arrayLimit, "{PATH} exceeds the limit of 10"],
-        // },
+        reserves: [
+            {
+                type: monogoose.Schema.Types.ObjectId,
+                ref: "Users",
+                autopopulate: true,
+            },
+        ],
     },
     {
         timestamps: true, //TODO: crea automaticamente, los campos createdAT, updateAt
@@ -28,8 +28,6 @@ const BaresSchema = new monogoose.Schema(
     }
 );
 
-// function arrayLimit(val) {
-//     return val.length <= 10;
-// }
+BaresSchema.plugin(require("mongoose-autopopulate"));
 
 module.exports = monogoose.model("Bares", BaresSchema);

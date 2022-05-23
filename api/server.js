@@ -2,14 +2,15 @@ const dbConnect = require("./config/dbMongo");
 const express = require("express");
 
 const cors = require("cors");
+
 const app = express();
+
+app.use(cors());
 
 const users = require("./routes/usersRoutes");
 const bares = require("./routes/baresRoutes");
 
 require("dotenv").config();
-
-app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
