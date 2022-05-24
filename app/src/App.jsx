@@ -14,10 +14,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/reservar" element={<Reservar />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/svd" element={<Home />} />
+          <Route path="/reservarvsvsd" element={<Reservar />} />
+
+          <Route path="/logineger" element={<Login />} />
+
+
+          <Route path></Route>
         </Routes>
       </BrowserRouter>
     </>
