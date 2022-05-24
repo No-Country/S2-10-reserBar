@@ -1,29 +1,54 @@
 import { useState, useEffect } from "react";
 import * as API from "../../services/bares.js";
+import "./ImageSlider.css"
 
 const ImageSlider = () =>{
     const [bares, setBares] = useState([]);
-
+    const [current, setCurrent] = useState(0);
   useEffect(() => {
-   /*  API.getAllBares().then(setBares(res.data)).catch(console.log); */
-   /* setBares(API.getAllBares() ) */
-   /* console.log(API.getAllBares()) */
+  
    const promiseBar= API.getAllBares()
-    promiseBar.then( (res,rej)=>{ setBares(res) } )
+   promiseBar.then( (res,rej)=>{ setBares(res) } )
      
   }, []);
+  
+  const lengthBares = bares.length;
+  const nextSlide = () => {
+    setCurrent(current === lengthBares - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? lengthBares - 1 : current - 1);
+  };
+
+  console.log(current)  ;
+  if (!Array.isArray(bares) || bares.lengthBares <= 0) {
+    return null;
+  }
+  console.log(bares);
     return(
-        <>
-        <div>prueba</div>
-        {bares.map((bar)=>(
-            <div> soy un bar {bar.name} </div> 
+      <section className="slider">
+        <button className='left-arrow' onClick={prevSlide} > letf </button>
+        
+        
+        {bares.map((bar,index)=>(
             
+            <div
+            className={index === current ? 'slide active' : 'slide'}
+            key={index}
+          >
+            {index === current && (
+              <img src={bar.photos[0] } alt='bar image' className='image' />
+            )}
+          </div>
         )
         )}
-        </>
+        <button className='right-arrow' onClick={nextSlide} > right </button>
+      </section>
 
     )
 
 };
 
 export default ImageSlider;
+
