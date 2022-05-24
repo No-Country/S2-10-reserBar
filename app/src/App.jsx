@@ -1,17 +1,27 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import ImageSlider from './components/ImageSlider/ImageSlider'
+import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
+import Reservar from "./pages/Reservar";
+import About from "./pages/About";
+import Login from "./pages/Login";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      
-      <ImageSlider></ImageSlider>
-    </div>
-  )
+   
+  
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/reservar" element={<Reservar />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
