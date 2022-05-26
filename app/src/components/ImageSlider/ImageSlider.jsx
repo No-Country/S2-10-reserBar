@@ -11,8 +11,9 @@ const ImageSlider = () => {
             setBares(res);
         });
     }, []);
-
-    const lengthBares = bares.length;
+    //validation: fix the render app without turn the server 
+    let lengthBares="" 
+    {bares ? lengthBares = bares.length : lengthBares=0 }
     const nextSlide = () => {
         setCurrent(current === lengthBares - 1 ? 0 : current + 1);
     };
