@@ -1,16 +1,29 @@
 .slider {
     position: relative;
-    height: 70vh;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .img-container{
+    width: 100%;
+  }
   
-  .image {
-    width: 80vw;
+  .slider.image {
+    min-height: 100%;
+    min-width: 100%;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /* IE 5-7 */
+    filter: alpha(opacity=0);
+    /* modern browsers */
+    opacity: 0;
+  }
+  /* .image {
+    width: 80%;
     max-height: 800px;
     border-radius: 10px;
-  }
+  } */
   
   .right-arrow {
     position: absolute;
