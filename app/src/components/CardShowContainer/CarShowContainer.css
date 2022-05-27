@@ -1,0 +1,35 @@
+.cardShowContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 650px;
+    width: 100vw;
+    position: relative;
+    background: rgb(2,0,36);
+    /* background: linear-gradient(360deg, #020024 50%, #E5E5E5 10%); */
+    background:linear-gradient(360deg, rgba(2,0,36,1) 50%, #e5e5e5 50%)
+}
+
+.cardShowContainer h3{
+    color: #040404;
+    
+}
+
+.cardShow{
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardShowContainer .barCard:hover {
+    box-shadow: 5px 5px 20px rgba(220, 216, 216, 0.4);
+    transform: translateY(-1%);
+}
+
+.arrow{
+    height: 50px;
+    
+    margin: 0px 15px 60px 15px;
+    align-self: center;
+}
