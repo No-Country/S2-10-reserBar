@@ -14,7 +14,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to="/reservar" className="navLink negrita">
-            RESERVAR
+          QUIENES SOMOS
           </NavLink>
         </li>
         <NavLink to="/">
@@ -22,7 +22,7 @@ const NavBar = () => {
         </NavLink>
         <li>
           <NavLink to="/about" className="navLink negrita">
-            QUIENES SOMOS
+            RESERVAR
           </NavLink>
         </li>
         <li>
