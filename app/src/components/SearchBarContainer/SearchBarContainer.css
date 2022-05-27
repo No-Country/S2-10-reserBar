@@ -1,0 +1,12 @@
+.searchResult{
+width: 100%;
+max-width: 1440px;
+display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.searchResult .barCard{
+    border: 1px black solid;
+}
