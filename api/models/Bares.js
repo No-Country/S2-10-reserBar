@@ -14,6 +14,8 @@ const BaresSchema = new monogoose.Schema(
 
         photos: [String],
 
+        vegan: { type: Boolean, default: true},
+
         reserves: [
             {
                 type: monogoose.Schema.Types.ObjectId,
