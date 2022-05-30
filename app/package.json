@@ -14,7 +14,10 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "6",
     "react-swipeable": "^7.0.0",
+<<<<<<< HEAD
     "redux": "^4.2.0",
+=======
+>>>>>>> 9cc99a5 (Agrego redux y página de reservas)
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {

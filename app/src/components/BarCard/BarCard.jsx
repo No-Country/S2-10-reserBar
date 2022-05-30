@@ -1,11 +1,9 @@
 import "./BarCard.css";
 import { NavLink } from "react-router-dom";
-import {veganStamp} from "../../assets/assetsIndex"
+import { veganStamp } from "../../assets/assetsIndex";
 
 export const BarCard = (props) => {
-
-  const bar = props.bar
-  const vegan = true;
+  const bar = props.bar;
 
   return (
     <div className="barCard">
@@ -13,19 +11,17 @@ export const BarCard = (props) => {
         className="imgCard"
         style={{ backgroundImage: `url(${bar.photos[0]})` }}
       >
-        {vegan ? (<img src={veganStamp} alt="veganStamp" className="veganStamp"/>):(<></>)}
+        {bar.vegan ? (
+          <img src={veganStamp} alt="veganStamp" className="veganStamp" />
+        ) : (
+          <></>
+        )}
       </div>
-      
-      <div className="infoCard">
-        <p>
-          {bar.description}
-        </p>
-        <NavLink to={`/${bar._id}`} className="reservationButton">
-        <button >
 
-          Reservar
-        
-        </button>
+      <div className="infoCard">
+        <h3>{bar.name}</h3>
+        <NavLink to={`/${bar._id}`} className="reservationButton">
+          <button>Reservar</button>
         </NavLink>
       </div>
     </div>

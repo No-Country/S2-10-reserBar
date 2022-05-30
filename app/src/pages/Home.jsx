@@ -7,13 +7,19 @@ import { getBares } from "../store/actions/baresActions";
 
 const Home = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9cc99a5 (Agrego redux y página de reservas)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBares());
   }, []);
 
+<<<<<<< HEAD
 =======
 >>>>>>> 2a8087f (Cards)
+=======
+>>>>>>> 9cc99a5 (Agrego redux y página de reservas)
   return (
     <>
       <HomeContainer />
