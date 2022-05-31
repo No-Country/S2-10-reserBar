@@ -27,16 +27,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.infoCard p {
+/* .infoCard h3{
+    margin-bottom: 2rem;
+} */
+
+/* .infoCard p {
     line-height: 1.5rem;
-    margin: 20px;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     color: #303030;
     font-weight: bold;
     text-align: center;
-}
+    height: 50px;
+    overflow: hidden;
+white-space: nowrap;
+} */
 
 .reservationButton {
     margin-bottom: 20px;
