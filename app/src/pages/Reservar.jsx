@@ -1,7 +1,8 @@
 import React from "react";
+import { ReservasContainer } from "../components/ReservasContainer/ReservasContainer";
 
 const Reservar = () => {
-  return <div>Reservar</div>;
+  return <ReservasContainer />;
 };
 
 export default Reservar;
