@@ -30,10 +30,7 @@ export const CardShowContainer = () => {
     };
    
   console.log(current)
-<<<<<<< HEAD
-=======
 
->>>>>>> 696b4ee (card fixed issues)
   return (
     <section className="cardShowContainer">
       <h3 className="baresPopulares">Los bares más populares</h3>
@@ -53,9 +50,6 @@ export const CardShowContainer = () => {
       </div>
     </section>
   );
-<<<<<<< HEAD
-};
-=======
 };
 
->>>>>>> 696b4ee (card fixed issues)
+
