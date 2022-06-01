@@ -1,41 +1,30 @@
-import { useEffect, useState } from "react";
-import * as API from "../../services/bares.js";
 import "./CarShowContainer.css";
 import { BarCard } from "../BarCard/BarCard";
 import { arrowToLeft, arrowToRight } from "../../assets/assetsIndex";
+import { useSelector } from "react-redux";
 
 export const CardShowContainer = () => {
-  const [bares, setBares] = useState([]);
-  const [final, setFinal] = useState(3);
-  const [initial, setInitial] = useState(0);
+  const bars = useSelector((state) => state.bars.bars);
 
-  const show = (init, end, array) => {
-    let bar = [];
-    for (let index = init; index < end; index++) {
-      bar = [...bar, array[index]];
-    }
-    return bar;
-  };
+  console.log(bars)
 
-  useEffect(() => {
-    const promiseBar = API.getXBares(final);
-    promiseBar.then((res, rej) => {
-      setBares(show(initial, final, res));
-    });
-  }, [final]);
+  let tresBares = [];
+  {
+    bars ? (tresBares = bars.slice(2, 5)) : (tresBares = []);
+  }
 
   return (
     <section className="cardShowContainer">
-      <h3>Los bares mas populares</h3>
+      <h3 className="baresPopulares">Los bares más populares</h3>
       <div className="cardShow">
-        <img src={arrowToLeft} alt="leftArrow" className="arrow" />
-        {bares.length ? (
-          bares.map((bar) => <BarCard bar={bar} key={bar._id} />)
+        {/* <img src={arrowToLeft} alt="leftArrow" className="arrow" /> */}
+        {tresBares ? (
+          tresBares.map((bar) => <BarCard bar={bar} key={bar._id} />)
         ) : (
           <></>
         )}
 
-        <img src={arrowToRight} alt="rightArrow" className="arrow" />
+        {/* <img src={arrowToRight} alt="rightArrow" className="arrow" /> */}
       </div>
     </section>
   );

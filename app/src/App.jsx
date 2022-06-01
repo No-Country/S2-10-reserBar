@@ -5,12 +5,12 @@ import Home from "./pages/Home";
 import Reservar from "./pages/Reservar";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   return (
-   
-  
-    <>
+    <Provider store={store}>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </Provider>
   );
 }
 
