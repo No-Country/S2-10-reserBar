@@ -22,6 +22,7 @@ export const CardShowContainer = () => {
   const nextSlide = () => {
         setCurrent(current === lengthBars - 1? 0:  current + 2);
     };
+<<<<<<< HEAD
 =======
 
 export const CardShowContainer = () => {
@@ -39,6 +40,15 @@ export const CardShowContainer = () => {
       return null;
   } */
   console.log(current)
+=======
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? lengthBars - 1 : current - 2);
+    };
+   
+  console.log(current)
+
+>>>>>>> 696b4ee (card fixed issues)
   return (
     <section className="cardShowContainer">
       <h3 className="baresPopulares">Los bares más populares</h3>
@@ -63,3 +73,4 @@ export const CardShowContainer = () => {
     </section>
   );
 };
+
