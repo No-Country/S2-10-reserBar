@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from '../NavBar/NavBar';
+import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-
-
 
 const Layout = () => {
   return (
@@ -14,13 +12,13 @@ const Layout = () => {
         flexDirection: "column",
       }}
     >
-      <NavBar/>
+      <NavBar />
       <section>
         <Outlet />
       </section>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
