@@ -1,9 +1,11 @@
 import "./ReservasContainer.css";
 import { BarCard } from "../BarCard/BarCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { getBares } from "../../store/actions/baresActions";
 
 export const ReservasContainer = () => {
+  const dispatch = useDispatch();
   const bars = useSelector((state) => state.bars.bars);
 
   const [baresFiltrados, setBaresFiltrados] = useState([]);
@@ -20,53 +22,28 @@ export const ReservasContainer = () => {
     vegan
   ) => {
     let filter = [];
-console.log(vegan)
+
     vegan
-      ? 
-        baresArray.map((data) => {
-            if (data.vegan === vegan) {
-              filter = [...filter, data];
-              console.log(filter);
-              setBaresFiltrados(filter)
+      ? baresArray.map((data) => {
+          if (data.vegan === vegan) {
+            filter = [...filter, data];
 
-            }
-          })
-        
-        
-      :  setBaresFiltrados(baresArray);
-
-    // vegan ? setBaresFiltrados(filter)
+            setBaresFiltrados(filter);
+          }
+        })
+      : setBaresFiltrados(baresArray);
   };
 
-  const changeVegan = ()=>{
+  const changeVegan = () => {
+    filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true);
+  };
 
-    filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true)
-  }
-
-  // useEffect(() => {
-  //   if (
-  //     filtroVegan !== false
-  //     // || filtroProvincia !== " " ||
-  //     // filtroCiudad !== " " ||
-  //     // barraBusqueda !== " "
-  //   ) {
-  //     funcionFiltro(
-  //       bars,
-  //       // barraBusqueda,
-  //       // filtroProvincia,
-  //       // filtroCiudad,
-  //       filtroVegan
-  //     );
-  //   } else {
-  //     setBaresFiltrados(bars);
-  //   }
-  //   console.log("cambio del filtro");
-  // }),
-  //   [filtroVegan];
-
-  useEffect(()=>{
-    setBaresFiltrados(bars)
-  },[])
+  useEffect(() => {
+    dispatch(getBares());
+  }, []);
+  useEffect(() => {
+    setBaresFiltrados(bars);
+  }, [bars]);
 
   return (
     <>
@@ -112,8 +89,8 @@ console.log(vegan)
                 name="vegan"
                 value="vegan"
                 onClick={(e) => {
-                  changeVegan()
-                  funcionFiltro(bars, filtroVegan)
+                  changeVegan();
+                  funcionFiltro(bars, filtroVegan);
                 }}
               />
               <label>Quiero opciones veganas</label>
