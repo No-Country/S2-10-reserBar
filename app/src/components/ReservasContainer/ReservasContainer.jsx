@@ -20,13 +20,12 @@ export const ReservasContainer = () => {
     vegan
   ) => {
     let filter = [];
-console.log(vegan)
+
     vegan
       ? 
         baresArray.map((data) => {
             if (data.vegan === vegan) {
               filter = [...filter, data];
-              console.log(filter);
               setBaresFiltrados(filter)
 
             }
@@ -35,7 +34,6 @@ console.log(vegan)
         
       :  setBaresFiltrados(baresArray);
 
-    // vegan ? setBaresFiltrados(filter)
   };
 
   const changeVegan = ()=>{
@@ -43,26 +41,6 @@ console.log(vegan)
     filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true)
   }
 
-  // useEffect(() => {
-  //   if (
-  //     filtroVegan !== false
-  //     // || filtroProvincia !== " " ||
-  //     // filtroCiudad !== " " ||
-  //     // barraBusqueda !== " "
-  //   ) {
-  //     funcionFiltro(
-  //       bars,
-  //       // barraBusqueda,
-  //       // filtroProvincia,
-  //       // filtroCiudad,
-  //       filtroVegan
-  //     );
-  //   } else {
-  //     setBaresFiltrados(bars);
-  //   }
-  //   console.log("cambio del filtro");
-  // }),
-  //   [filtroVegan];
 
   useEffect(()=>{
     setBaresFiltrados(bars)
