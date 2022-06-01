@@ -24,24 +24,19 @@ export const ReservasContainer = () => {
     let filter = [];
 
     vegan
-      ? 
-        baresArray.map((data) => {
-            if (data.vegan === vegan) {
-              filter = [...filter, data];
-              setBaresFiltrados(filter)
-
-    vegan
       ? baresArray.map((data) => {
           if (data.vegan === vegan) {
             filter = [...filter, data];
 
+            setBaresFiltrados(filter);
+          }
+        })
+      : setBaresFiltrados(baresArray);
   };
 
-  const changeVegan = ()=>{
-
-    filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true)
-  }
-
+  const changeVegan = () => {
+    filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true);
+  };
 
   useEffect(() => {
     dispatch(getBares());
