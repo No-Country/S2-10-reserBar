@@ -1,0 +1,20 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background: rgba(2,0,36,1);
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    
+}
+
+.seccion{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+

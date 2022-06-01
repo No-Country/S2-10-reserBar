@@ -1,9 +1,11 @@
 import "./ReservasContainer.css";
 import { BarCard } from "../BarCard/BarCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { getBares } from "../../store/actions/baresActions";
 
 export const ReservasContainer = () => {
+  const dispatch = useDispatch();
   const bars = useSelector((state) => state.bars.bars);
 
   const [baresFiltrados, setBaresFiltrados] = useState([]);
@@ -28,11 +30,10 @@ export const ReservasContainer = () => {
               filter = [...filter, data];
               setBaresFiltrados(filter)
 
-            }
-          })
-        
-        
-      :  setBaresFiltrados(baresArray);
+    vegan
+      ? baresArray.map((data) => {
+          if (data.vegan === vegan) {
+            filter = [...filter, data];
 
   };
 
@@ -42,9 +43,12 @@ export const ReservasContainer = () => {
   }
 
 
-  useEffect(()=>{
-    setBaresFiltrados(bars)
-  },[])
+  useEffect(() => {
+    dispatch(getBares());
+  }, []);
+  useEffect(() => {
+    setBaresFiltrados(bars);
+  }, [bars]);
 
   return (
     <>
@@ -58,7 +62,7 @@ export const ReservasContainer = () => {
           )}
         </div>
         <div className="asideBusqueda">
-          <label>Busqueda por nombre</label>
+          <label>Búsqueda por nombre</label>
           <form action="">
             <input
               type="text"
@@ -90,11 +94,11 @@ export const ReservasContainer = () => {
                 name="vegan"
                 value="vegan"
                 onClick={(e) => {
-                  changeVegan()
-                  funcionFiltro(bars, filtroVegan)
+                  changeVegan();
+                  funcionFiltro(bars, filtroVegan);
                 }}
               />
-              <label>Quiero opciones veganas</label>
+              <label>Opciones veganas</label>
             </div>
           </form>
         </div>
