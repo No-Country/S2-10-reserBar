@@ -57,7 +57,7 @@ export const ReservasContainer = () => {
           )}
         </div>
         <div className="asideBusqueda">
-          <label>Busqueda por nombre</label>
+          <label>Búsqueda por nombre</label>
           <form action="">
             <input
               type="text"
@@ -93,7 +93,7 @@ export const ReservasContainer = () => {
                   funcionFiltro(bars, filtroVegan);
                 }}
               />
-              <label>Quiero opciones veganas</label>
+              <label>Opciones veganas</label>
             </div>
           </form>
         </div>
