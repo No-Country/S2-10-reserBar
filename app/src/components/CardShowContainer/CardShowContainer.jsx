@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 export const CardShowContainer = () => {
   const bars = useSelector((state) => state.bars.bars);
 
-  console.log(bars)
-
   let tresBares = [];
   {
     bars ? (tresBares = bars.slice(2, 5)) : (tresBares = []);
