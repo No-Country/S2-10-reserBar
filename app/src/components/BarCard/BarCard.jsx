@@ -1,7 +1,7 @@
 import "./BarCard.css";
 import { NavLink } from "react-router-dom";
 import { veganStamp } from "../../assets/assetsIndex";
-import { ImLocation2 } from "react-icons/im";
+// import { ImLocation2 } from "react-icons/im";
 
 export const BarCard = (props) => {
   const bar = props.bar;
@@ -22,7 +22,8 @@ export const BarCard = (props) => {
       <div className="infoCard">
         <h3>{bar.name}</h3>
         <p>
-          <ImLocation2 /> {bar.location}
+          {/* <ImLocation2 />  */}
+          {bar.location}
         </p>
         <NavLink to={`/${bar._id}`} className="reservationButton">
           <button>Reservar</button>

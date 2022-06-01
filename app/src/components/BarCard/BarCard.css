@@ -17,6 +17,7 @@
     height: 50%;
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
