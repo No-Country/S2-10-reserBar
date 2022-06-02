@@ -19,7 +19,18 @@ const baresControllers = {
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.mapped() });
             }
-            const { name, description, location, password, email } = req.body;
+            const {
+                name,
+                description,
+                location,
+                password,
+                email,
+                capacity,
+                city,
+                state,
+                country,
+                vegan,
+            } = req.body;
             // const image = req.file.originalname;
 
             // const uploader = async (path) =>
@@ -50,6 +61,11 @@ const baresControllers = {
                 password,
                 photos: urls.map((url) => url.res),
                 email,
+                capacity,
+                city,
+                state,
+                country,
+                vegan,
             });
 
             const salt = await bcrypt.genSalt(10);
@@ -168,12 +184,12 @@ const baresControllers = {
                     await Bares.findByIdAndUpdate(idBar, {
                         $push: {
                             reserves: user,
-                        }
+                        },
                     });
                     const userReserve = await Users.findByIdAndUpdate(user, {
                         $push: {
                             my_reserve: idBar,
-                        }
+                        },
                     });
 
                     res.status(200).json(
@@ -199,10 +215,10 @@ const baresControllers = {
                             reserves: user,
                         },
                     });
-                     await Users.findByIdAndUpdate(user, {
+                    await Users.findByIdAndUpdate(user, {
                         $pullAll: {
-                            my_reserve: [idBar]
-                        }
+                            my_reserve: [idBar],
+                        },
                     });
                     res.status(200).json("Reserva eliminada");
                 } else {
