@@ -22,7 +22,8 @@ export const BarCard = (props) => {
       <div className="infoCard">
         <h3>{bar.name}</h3>
         <p>
-          <ImLocation2 /> {bar.location}
+          <ImLocation2 />
+          {bar.location}
         </p>
         <NavLink to={`/${bar._id}`} className="reservationButton">
           <button>Reservar</button>

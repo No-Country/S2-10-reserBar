@@ -1,13 +1,14 @@
 
 .ReservasContainer{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    /* align-items: center; */
     justify-content: center;
-    
+    /*  */
 }
 .Título{
     font-size: 2rem;
+    text-align: center;
 }
 
 .contenedorCards{
@@ -18,4 +19,18 @@
     height: 80vh;
     justify-content: center;
     margin-bottom: 10rem;
+}
+
+.asideBusqueda{
+background-color: #D9D9D9;
+display: flex;
+flex-direction: column;
+position: sticky;
+padding: 15px;
+max-height: 500px;
+}
+
+.asideBusqueda form{
+    display: flex;
+flex-direction: column;
 }
