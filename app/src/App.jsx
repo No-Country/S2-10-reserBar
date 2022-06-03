@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import store from "./store";
 import Layout from "./components/Layout/Layout";
+import ViewBar from "./pages/ViewBar";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/reservar" element={<Reservar />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/:id" element={<ViewBar/>} />
           </Route>
         </Routes>
       </BrowserRouter>
