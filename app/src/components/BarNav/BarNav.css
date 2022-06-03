@@ -1,0 +1,39 @@
+.BarOptions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+}
+.BarOptions button{
+    height: 40px;
+    font-size: 100%;
+    font-style: italic;
+    width: 100%;
+    border: none;
+    background-color: #FCA311;
+}
+
+.BarInfo{
+    background-color:#A5A5A5;
+    height:70vh;
+    padding:50px;
+    padding-bottom:100px;
+}
+
+.containerCard{
+    background-color:#EEEEEE;
+    width:50%;
+    margin:auto;
+    padding:200px;
+    height: -webkit-fill-available;
+}
+.cardLocal{
+    background-color: rgba(71, 71, 71, 1);
+    width:80%;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
