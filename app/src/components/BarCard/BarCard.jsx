@@ -1,5 +1,5 @@
 import "./BarCard.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { veganStamp } from "../../assets/assetsIndex";
 import { ImLocation2 } from "react-icons/im";
 
@@ -25,9 +25,11 @@ export const BarCard = (props) => {
           <ImLocation2 />
           {bar.location}
         </p>
-        <NavLink to={`/${bar._id}`} className="reservationButton">
+        <Link to={`/${bar._id}`}
+          state={{bar: bar }}
+        className="reservationButton">
           <button>Reservar</button>
-        </NavLink>
+        </Link>
       </div>
     </div>
   );
