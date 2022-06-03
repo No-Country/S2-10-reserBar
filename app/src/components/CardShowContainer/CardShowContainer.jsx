@@ -1,41 +1,53 @@
-import { useEffect, useState } from "react";
-import * as API from "../../services/bares.js";
 import "./CarShowContainer.css";
 import { BarCard } from "../BarCard/BarCard";
 import { arrowToLeft, arrowToRight } from "../../assets/assetsIndex";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export const CardShowContainer = () => {
-  const [bares, setBares] = useState([]);
-  const [final, setFinal] = useState(3);
-  const [initial, setInitial] = useState(0);
-
-  const show = (init, end, array) => {
-    let bar = [];
-    for (let index = init; index < end; index++) {
-      bar = [...bar, array[index]];
+  const bars = useSelector((state) => state.bars.bars);
+  const [current, setCurrent] = useState(0);
+  let lengthBars="" 
+    {
+      bars ? (lengthBars = bars.length) : lengthBars=0 
     }
-    return bar;
-  };
+  let tresBares = [];
+  
+  
+  {
+    bars ? ( tresBares = bars.slice(current, current+3)) : (tresBares = []);
+  }
 
-  useEffect(() => {
-    const promiseBar = API.getXBares(final);
-    promiseBar.then((res, rej) => {
-      setBares(show(initial, final, res));
-    });
-  }, [final]);
+  const nextSlide = () => {
+        setCurrent(current === lengthBars - 1? 0:  current + 2);
+    };
+  
+  
 
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? lengthBars - 1 : current - 2);
+    };
+    /* if (!Array.isArray(bars) || bars.lengthBares <= 0) {
+      return null;
+  } */
+  console.log(current)
   return (
     <section className="cardShowContainer">
-      <h3>Los bares mas populares</h3>
+      <h3 className="baresPopulares">Los bares más populares</h3>
       <div className="cardShow">
-        <img src={arrowToLeft} alt="leftArrow" className="arrow" />
-        {bares.length ? (
-          bares.map((bar) => <BarCard bar={bar} key={bar._id} />)
+
+        <img src={arrowToLeft} alt="leftArrow" className="arrow" onClick={prevSlide}  />
+
+        {tresBares ? (
+          tresBares.map((bar) => <BarCard bar={bar} key={bar._id} />)
         ) : (
           <></>
         )}
 
-        <img src={arrowToRight} alt="rightArrow" className="arrow" />
+
+        <img src={arrowToRight} alt="rightArrow" className="arrow" onClick={nextSlide} />
+
       </div>
     </section>
   );

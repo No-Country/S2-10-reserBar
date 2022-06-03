@@ -13,15 +13,16 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/reservar" className="navLink negrita">
-          QUIENES SOMOS
+          <NavLink to="/about" className="navLink negrita">
+            QUIENES SOMOS
           </NavLink>
         </li>
+
         <NavLink to="/">
           <img src={logo} alt="logo" width={100} height={100} />
         </NavLink>
         <li>
-          <NavLink to="/about" className="navLink negrita">
+          <NavLink to="/reservar" className="navLink negrita">
             RESERVAR
           </NavLink>
         </li>

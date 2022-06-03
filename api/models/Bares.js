@@ -10,9 +10,19 @@ const BaresSchema = new monogoose.Schema(
 
         location: { type: String, required: true },
 
+        city: { type: String, required: true },
+
+        state: { type: String, required: true },
+
+        country: { type: String, required: true },
+
+        capacity: { type: Number, required: true },
+
         description: { type: String, unique: true, required: true },
 
         photos: [String],
+
+        vegan: { type: Boolean, default: true},
 
         reserves: [
             {
