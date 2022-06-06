@@ -13,9 +13,9 @@ export const ReservasContainer = () => {
 
   const [baresFiltrados, setBaresFiltrados] = useState([]);
   const [barraBusqueda, setBarraBusqueda] = useState("");
-  const [filtroPais, setFiltroPais] = useState("");
-  const [filtroProvincia, setFiltroProvincia] = useState("");
-  const [filtroCiudad, setFiltroCiudad] = useState("");
+  const [filtroPais, setFiltroPais] = useState(" ");
+  const [filtroProvincia, setFiltroProvincia] = useState(" ");
+  const [filtroCiudad, setFiltroCiudad] = useState(" ");
   const [filtroVegan, setFiltroVegan] = useState(false);
 
   useEffect(() => {
@@ -55,65 +55,37 @@ export const ReservasContainer = () => {
     }catch(e){}
   };
 
-  const funcionFiltro = (
+
+  const funcionFiltro = async (
     baresArray,
-    // barraBusqueda,
+    barraBusqueda,
     pais,
     provincia,
     ciudad,
     vegan
   ) => {
-    let filter = [];
+    let filter = baresArray;
+    let filters = {"barra":barraBusqueda, "pais":pais, "provincia":provincia, "ciudad":ciudad, "vegan":vegan}
+    console.log(filter)
+    console.log(filters)
 
-    console.log(pais, provincia, ciudad, vegan)
-    console.log(baresArray)
+if (barraBusqueda == "" && pais == " " && provincia == " " && ciudad ==" " && vegan == false){
+  setBaresFiltrados(baresArray);
+}else{
+    console.log("filtrando")
 
-    pais
-      ? baresArray.map((data) => {
-          if (data.country === pais) {
-            filter = [...filter, data];
-            console.log(filter)
-            setBaresFiltrados(filter);
-          }
-        })
-        : console.log("no se establecio filtro pais")
-
-        provincia
-        ? filter.map((data) => {
-          if (data.state === provincia) {
-            filter = [...filter, data];
-            console.log(filter)
-            setBaresFiltrados(filter);
-          }
-        })
-        :console.log("no se establecio filtro provincia")
-
-        ciudad
-        ? filter.map((data) => {
-          if (data.city === ciudad) {
-            console.log(filter)
-            filter = [...filter, data];
-            setBaresFiltrados(filter);
-          }
-        })
-      : console.log("no se establecio filtro ciudad")
-
-  //   vegan
-  //     ? baresArray.map((data) => {
-  //         if (data.vegan === vegan) {
-  //           filter = [...filter, data];
-
-  //           setBaresFiltrados(filter);
-  //         }
-  //       })
-  //     : setBaresFiltrados(baresArray);
-
-  if(filtroPais && filtroProvincia && filtroCiudad === false) {setBaresFiltrados(baresArray)} 
-
+      barraBusqueda != " " ? filter = filter.filter(bar => bar.name.toLowerCase()==barraBusqueda || bar.name.toLowerCase().includes(barraBusqueda)) : setBaresFiltrados(filter)
+      pais != " " ? filter = filter.filter(bar => bar.country==pais) : setBaresFiltrados(filter)
+      provincia != " " ? filter = filter.filter(bar => bar.state==provincia) : setBaresFiltrados(filter) 
+      ciudad != " " ? filter = filter.filter(bar => bar.city==ciudad) : setBaresFiltrados(filter) 
+      vegan ? filter = filter.filter(bar => bar.vegan==true) : setBaresFiltrados(filter) 
+      console.log(filter)
+      setBaresFiltrados(filter)
+}
   };
 
-  const changeVegan = () => {
-    filtroVegan ? setFiltroVegan(false) : setFiltroVegan(true);
+  const changeVegan = async (booleanValue) => {
+    setFiltroVegan(booleanValue)
   };
 
 
@@ -135,14 +107,20 @@ export const ReservasContainer = () => {
             <input
               type="text"
               id="searchBar"
-              onChange={(value) => {
-                var searchBar = document.getElementById("searchBar");
-                setBarraBusqueda(searchBar.value);
+              placeholder="Nombre del bar"
+              onChange={(e) => {
+                let value = e.target.value
+                if(value && value.trim().length > 0){
+                  value = value.trim().toLowerCase()
+                  setBarraBusqueda(value);
+                  console.log(value)}
+                  funcionFiltro(bars,value,filtroPais,filtroProvincia,filtroCiudad,filtroVegan)
+
               }}
             />
 
             <label>Pais</label>
-            <select id="pais" name="pais" onChange={(e) => {setFiltroPais(e.target.value); funcionFiltro(bars,filtroPais,filtroProvincia,filtroCiudad,filtroVegan)}}>
+            <select id="pais" name="pais" onChange={(e) => {setFiltroPais(e.target.value); funcionFiltro(bars,barraBusqueda,e.target.value,filtroProvincia,filtroCiudad,filtroVegan)}}>
               {countries.length ? (
                 countries.map((data) => (
                   <option key={data} value={data}>
@@ -155,7 +133,7 @@ export const ReservasContainer = () => {
             </select>
 
             <label>Provincia</label>
-            <select id="provincia" name="provincia" onChange={(e) => {setFiltroProvincia(e.target.value); funcionFiltro(bars,filtroPais,filtroProvincia,filtroCiudad,filtroVegan)}}>
+            <select id="provincia" name="provincia" onChange={(e) => {setFiltroProvincia(e.target.value); funcionFiltro(bars,barraBusqueda,filtroPais,e.target.value,filtroCiudad,filtroVegan)}}>
               {states.length ? (
                 states.map((data) => (
                   <option key={data} value={data}>
@@ -168,7 +146,7 @@ export const ReservasContainer = () => {
             </select>
 
             <label>Ciudad</label>
-            <select id="ciudad" name="ciudad" onChange={(e) => {setFiltroCiudad(e.target.value); funcionFiltro(bars,filtroPais,filtroProvincia,filtroCiudad,filtroVegan)}}>
+            <select id="ciudad" name="ciudad" onChange={(e) => {setFiltroCiudad(e.target.value);funcionFiltro(bars,barraBusqueda,filtroPais,filtroProvincia,e.target.value,filtroVegan)}}>
               {cities.length ? (
                 cities.map((data) => (
                   <option key={data} value={data}>
@@ -189,8 +167,9 @@ export const ReservasContainer = () => {
                 name="vegan"
                 value="vegan"
                 onClick={(e) => {
-                  changeVegan();
-                  funcionFiltro(bars,filtroPais,filtroProvincia,filtroCiudad,filtroVegan);
+                  // changeVegan(e.target.checked).then(
+                  funcionFiltro(bars,barraBusqueda,filtroPais,filtroProvincia,filtroCiudad,e.target.checked)
+                  // )
                 }}
               />
               <label>Opciones veganas</label>
