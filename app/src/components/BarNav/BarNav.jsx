@@ -1,6 +1,6 @@
 import "./BarNav.css"
-const BarNav = (description) => {
-    console.log(description)
+const BarNav = ({description}) => {
+    console.log(description);
     
     return (
       <>
@@ -37,12 +37,12 @@ const BarNav = (description) => {
         <section className="BarInfo" >
             
             <article className="containerCard">
-              {description.description[0].description}
+              {description.description}
               <div className="cardLocal">
-                <p> {description.description[0].location }  </p>
-                <p> {description.description[0].city } </p>
-                <p>  {description.description[0].country } </p>
-                <p> {description.description[0].state } </p>
+                <p> {description.location }  </p>
+                <p> {description.city } </p>
+                <p>  {description.country } </p>
+                <p> {description.state } </p>
               </div>
             </article>
             
