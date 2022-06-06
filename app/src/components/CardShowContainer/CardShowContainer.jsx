@@ -28,8 +28,9 @@ export const CardShowContainer = () => {
     const prevSlide = () => {
         setCurrent(current === 0 ? lengthBars - 1 : current - 2);
     };
-   
-  console.log(current)
+    /* if (!Array.isArray(bars) || bars.lengthBares <= 0) {
+      return null;
+  } */
 
   return (
     <section className="cardShowContainer">
