@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import "./LoginForm.css";
+import "./RegisterForm.css";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   return (
     <>
@@ -11,6 +11,7 @@ const LoginForm = () => {
           nombre: "",
           correo: "",
           password: "",
+          lastname: "",
         }}
         validate={(valores) => {
           let errores = {};
@@ -20,6 +21,14 @@ const LoginForm = () => {
             errores.nombre = "Por favor ingresa un nombre";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
             errores.nombre = "El nombre solo puede contener letras y espacios";
+          }
+
+          // Validacion lastname
+          if (!valores.lastname) {
+            errores.lastname = "Por favor ingresa un Segundo Nombre";
+          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.lastname)) {
+            errores.lastname =
+              "El LastName solo puede contener letras y espacios";
           }
 
           // Validacion correo
@@ -58,6 +67,28 @@ const LoginForm = () => {
         {({ errors }) => (
           <Form className="formulario">
             <div>
+              <h1 style={{ color: "white" }}>Register</h1>
+              <label htmlFor="nombre">Nombre</label>
+              <Field type="text" id="nombre" name="nombre" placeholder="John" />
+              <ErrorMessage
+                name="nombre"
+                component={() => <div className="error">{errors.nombre}</div>}
+              />
+            </div>
+            <div>
+              <label htmlFor="lastname">LastName</label>
+              <Field
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder=" Doe"
+              />
+              <ErrorMessage
+                name="lastname"
+                component={() => <div className="error">{errors.lastname}</div>}
+              />
+            </div>
+            <div>
               <label htmlFor="correo">Correo</label>
               <Field
                 type="text"
@@ -94,4 +125,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
