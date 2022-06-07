@@ -9,7 +9,7 @@
 	height: 80vh;
 }
 .divFantasma{
-	width: 100%;
+	width: 80%;
 }
 
 .fondoAzul{
@@ -27,6 +27,14 @@
 	
 }
 
+.irARegistro{
+	color: white
+}
+
+.linkRegistro{
+	color: #0085FF;
+	text-decoration: none;
+}
 
 .cajaLogin{
 	background-color: rgba(0, 0, 0, 0.7);
@@ -36,8 +44,8 @@
 	justify-content: center;
 	width: 65%;
 	border-radius: 4px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .cajaLogin h1{
@@ -70,7 +78,7 @@
 	font-size: 18px;
 	padding: 1%;
 	margin-bottom: 5px;
-	color: #e2e2e2;
+	color: #000000;
   
 }
 

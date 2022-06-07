@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./LoginForm.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
@@ -84,7 +85,6 @@ const LoginForm = () => {
           {({ errors }) => (
             <Form className="formulario">
               <div className="cajaLogin">
-                <div></div>
                 <h1 style={{ color: "white" }}>Login</h1>
                 {/* <div>
               <h1 style={{ color: "white" }}>Login</h1>
@@ -135,6 +135,14 @@ const LoginForm = () => {
                   {formularioEnviado && (
                     <p className="exito">Formulario enviado con exito!</p>
                   )}
+                </div>
+                <div>
+                  <p className="irARegistro">
+                    Si aún no tienes cuenta{" "}
+                    <Link to="/registro" className="linkRegistro">
+                      regístrate aqui
+                    </Link>
+                  </p>
                 </div>
               </div>
             </Form>

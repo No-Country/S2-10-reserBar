@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Layout from "./components/Layout/Layout";
 import ViewBar from "./pages/ViewBar";
+import Registro from "./components/Registro/Registro";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/reservar" element={<Reservar />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/:id" element={<ViewBar/>} />
+            <Route index element={<Home />} />
+            <Route path="/reservar" element={<Reservar />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/:id" element={<ViewBar />} />
           </Route>
         </Routes>
       </BrowserRouter>
