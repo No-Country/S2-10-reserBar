@@ -1,23 +1,58 @@
-.contenedor {
-	min-height: 100%;
+.contenedorLogin{
 	display: flex;
-	align-items: flex-start;
-	justify-content: center;
+	flex-direction: row;
+	background-image: url(https://static8.depositphotos.com/1018611/963/i/450/depositphotos_9630627-stock-photo-cocktail-glass-with-drink-in.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 70%;
+	margin: 0 auto;
+	height: 80vh;
+}
+.divFantasma{
+	width: 100%;
+}
+
+.fondoAzul{
+	background: #1e2e4e;	
 }
 
 .formulario {
-	min-width: 600px;
-	background: #1e2e4e;
-	border-radius: 5px;
-	padding: 10%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	margin: auto 0;
+	
 }
 
-.formulario > div {
+
+.cajaLogin{
+	background-color: rgba(0, 0, 0, 0.7);
+	filter: alpha(opacity=50);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 65%;
+	border-radius: 4px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cajaLogin h1{
+	text-align: center;
+}
+
+.cajaLogin > div {
 	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-.formulario label {
+.cajaLogin label {
 	display: block;
 	font-weight: 600;
 	font-size: 14px;
@@ -26,10 +61,10 @@
  
 }
 
-.formulario input,
-.formulario textarea {
+.cajaLogin input,
+.cajaLogin textarea {
 	font-family: 'Open Sans', sans-serif;
-	width: 100%;
+	width: 80%;
 	border-radius: 5px;
 	border: 2px solid #e2e2e2;
 	font-size: 18px;
@@ -37,28 +72,28 @@
 	margin-bottom: 5px;
 	color: #e2e2e2;
   
-  
 }
 
-.formulario input:focus {
+
+.cajaLogin input:focus {
 	outline: none;
 	border: 2px solid #0085FF;
 }
 
-.formulario .error {
+.cajaLogin .error {
 	color: #e92b2d;
 	font-weight: 600;
 	font-size: 12px;
 }
 
-.formulario button[type="submit"] {
+.cajaLogin button[type="submit"] {
 	display: block;
 	background: #0085FF;
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 	border: none;
 	cursor: pointer;
-	width: 102%;
+	width: 82%;
 	padding: 10px;
 	border-radius: 5px;
 	color: #fff;
@@ -66,17 +101,18 @@
 	transition: .3s ease all;
 }
 
-.formulario button[type="submit"]:hover {
+.cajaLogin button[type="submit"]:hover {
 	background: #0051ff;
 }
 
-.formulario .exito {
+.cajaLogin .exito {
 	text-align: center;
 	font-size: 14px;
 	padding-top: 20px;
 	color: #02a802;
 }
 
-.formulario input[type="radio"] {
+.cajaLogin input[type="radio"] {
 	width: auto;
 }
+
