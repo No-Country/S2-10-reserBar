@@ -10,6 +10,7 @@ import store from "./store";
 import Layout from "./components/Layout/Layout";
 import ViewBar from "./pages/ViewBar";
 import Registro from "./components/Registro/Registro";
+import BarRegister from "./components/BarRegister/BarRegister";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
             <Route path="/:id" element={<ViewBar />} />
+            <Route path="/barRegistro" element={<BarRegister />} />
           </Route>
         </Routes>
       </BrowserRouter>
