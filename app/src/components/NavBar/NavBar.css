@@ -45,10 +45,17 @@ h1{
 }
 
 .negrita{
-    font-weight: bold;
+    font-weight: 500;
     color: #e5e5e5;
 }
 
 .Logo{
     color: #e5e5e5;
+}
+
+hr{
+    margin: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #e9e9e9;
 }

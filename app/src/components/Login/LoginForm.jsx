@@ -143,6 +143,13 @@ const LoginForm = () => {
                       regístrate aqui
                     </Link>
                   </p>
+              
+                  <p className="irARegistro">
+                    Para registrar tu bar{" "}
+                    <Link to="/barRegistro" className="linkRegistro">
+                      hacelo aqui!
+                    </Link>
+                  </p>
                 </div>
               </div>
             </Form>

@@ -6,7 +6,7 @@
 	background-size: cover;
 	width: 70%;
 	margin: 0 auto;
-	height: 80vh;
+	min-height: 100vh;
 }
 .divFantasma{
 	width: 80%;

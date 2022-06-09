@@ -16,7 +16,6 @@
 
 .BarInfo{
     background-color:#A5A5A5;
-    height:70vh;
     padding:50px;
     padding-bottom:100px;
 }
@@ -25,7 +24,7 @@
     background-color:#EEEEEE;
     width:50%;
     margin:auto;
-    padding:200px;
+    padding:4rem;
     height: -webkit-fill-available;
 }
 .cardLocal{
