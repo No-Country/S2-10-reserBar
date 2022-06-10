@@ -5,15 +5,21 @@ import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AvatarUser from "./AvatarUser";
+import { Button } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 
 const UserComponent = () => {
-  const [readState, setReadState] = useState(false);
+  const [readState, setReadState] = useState(true);
 
   const Read = () => {
+    if (readState == true) {
+      setReadState(false);
+    }
+  };
+
+  const Save = () => {
     if (readState == false) {
       setReadState(true);
-    } else {
-      setReadState(false);
     }
   };
 
@@ -133,6 +139,16 @@ const UserComponent = () => {
               }}
             />
           </div>
+
+          {readState == false ? (
+            <>
+              <IconButton onClick={() => Save()}>
+                <SaveIcon />
+              </IconButton>
+            </>
+          ) : (
+            <></>
+          )}
         </Box>
       </section>
     </div>
