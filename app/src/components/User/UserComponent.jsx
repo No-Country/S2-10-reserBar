@@ -32,7 +32,7 @@ const UserComponent = () => {
             <EditIcon />
           </IconButton>
         </div>
-        <h1>Datos Cuenta</h1>
+        <h1>Datos Cuentas</h1>
         <Box
           component="form"
           sx={{
