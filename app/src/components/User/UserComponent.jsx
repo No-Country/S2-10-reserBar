@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import "./InputUser.css";
+import AvatarUser from "./AvatarUser";
 
 const UserComponent = () => {
   const [readState, setReadState] = useState(false);
@@ -20,6 +20,12 @@ const UserComponent = () => {
   return (
     <div className="Container">
       <section className="box">
+        <div className="avatar">
+          <AvatarUser></AvatarUser>
+          <IconButton onClick={() => Read()}>
+            <EditIcon />
+          </IconButton>
+        </div>
         <h1>Datos Cuenta</h1>
         <Box
           component="form"
@@ -126,9 +132,6 @@ const UserComponent = () => {
                 readOnly: readState,
               }}
             />
-            <IconButton onClick={() => Read()}>
-              <EditIcon />
-            </IconButton>
           </div>
         </Box>
       </section>
