@@ -21,7 +21,10 @@ const LoginForm = () => {
       })
       .then((res) => {
         setTokenUsuario(res.data.token);
+        //Puse en guarda el token para que quede post logueo
+        localStorage.setItem("token", res.data.token);
         console.log(tokenUsuario);
+
       })
       .catch((err) => console.log(err));
   };

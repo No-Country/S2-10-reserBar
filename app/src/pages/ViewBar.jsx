@@ -4,6 +4,7 @@ import ImageSlider from "../components/ImageSlider/ImageSlider"
 import BarNav from "../components/BarNav/BarNav"
 import { useParams } from 
 "react-router-dom";
+import { ReserveForm } from "../components/ReserveForm/ReserveForm";
 
 const ViewBar = () => {
    const [infoBar,setInfoBar] = useState({}) ; 
@@ -32,9 +33,9 @@ const ViewBar = () => {
         
         <ImageSlider ImageProps={infoBar.photos} namePro={infoBar.name}  />
     
-        <BarNav description={infoBar}
+        <BarNav description={infoBar}/>
 
-        />
+        <ReserveForm/>
         
     </> 
   )
