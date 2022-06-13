@@ -11,13 +11,7 @@ export const Reserve = () => {
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
   const [visitors, setVisitors] = useState(Number);
-  const [comments, setComments] = useState("");
-  /* const [options,setOptions]= useState(0);
-  console.log(options);
-  const params = useParams(); */
-
-  // const reserva = async () => {
-
+ 
   console.log(id_bar);
   console.log(authToken);
   console.log(user_id);
@@ -51,8 +45,8 @@ export const Reserve = () => {
       url: `http://localhost:3005/api/bares/${id_bar}/unreserve`,
       headers: { Authorization: `Bearer ${authToken}` },
       data: {
-        user: "62a25a7ff0145d1f898c3726",
-        date:"18-10-2022",
+        user: user,
+        date:"date",
         email:"andresrubio@reserbar.com",
       },
     };
@@ -75,19 +69,6 @@ export const Reserve = () => {
         console.log(error);
       });
   };
-
-  //Campos faltantes desde back
-  // - Id usuario
-
-  //Guardar en localStorage o preguntar a vicen por Reddux
-  // - Token
-
-  //CAMPOS PARA LA RESERVA:
-  // - ID RESERVA
-  // - ID Usuario
-  // - Fecha
-  // - Horario
-  // - Cantidad de visitantes/comensales
 
   useEffect(() => {
     console.log(date);

@@ -10,6 +10,8 @@ const Layout = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
+
       }}
     >
       <NavBar />

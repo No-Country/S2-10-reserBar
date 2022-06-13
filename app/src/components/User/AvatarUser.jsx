@@ -6,8 +6,8 @@ const AvatarUser = () => {
     <div className="avatarImg">
       <img
         style={{
-          width: "30%",
-          height: "40%",
+          width: "250px",
+          height: "250px",
           margin: "0%",
           padding: "0%",
           borderRadius: "50%",
