@@ -79,7 +79,8 @@ const usersControllers = {
                     if (error) throw error;
 
                     //mensaje de confirmación
-                    res.json({ token });
+                    res.json({ token , user});
+
                 }
             );
         } catch (error) {

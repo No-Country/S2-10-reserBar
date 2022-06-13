@@ -8,11 +8,28 @@ import { getUser } from "../../store/actions/usersActions";
 const LoginForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const [tokenUsuario, setTokenUsuario] = useState();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const login = async (valores) => {
-    dispatch(getUser(valores));
+    console.log(valores);
+
+    const password = valores.password;
+    const email = valores.email;
+
+    await axios
+      .post("http://localhost:3005/api/users/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        setTokenUsuario(res.data.token);
+        //Puse en guarda el token para que quede post logueo
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user_id", res.data.user._id);
+        console.log(res.data);
+
+      })
+      .catch((err) => console.log(err));
     setTimeout(() => {
       navigate("/");
     }, "2500");

@@ -12,9 +12,12 @@ const UserSchema = new monogoose.Schema(
 
         my_reserve: [
             {
-                type: String,
+                type: Object,
                 ref: "Bares",
-                autopopulate: true,
+                date:{type: String},
+                time:{type: String},
+                visitors:{type: Number},
+                autopopulate: true
             },
         ],
         
