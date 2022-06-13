@@ -178,22 +178,26 @@ const baresControllers = {
     reservar: async (req, res) => {
         try {
             const idBar = { _id: req.params.id };
-            const { user } = req.body;
+            const { user,date,time,visitors } = req.body;
+            const userId = await Users.findById(user)
+            const reservaUser = {"idBar":idBar._id,"date":date,"time":time,"visitors":visitors}
+            const reservaBar = {"user_id":userId._id,"name":userId.name,"last_name":userId.last_name,"email":userId.email,"date":date,"time":time,"visitors":visitors}
+
             jwt.verify(req.token, process.env.SECRET, async (error, data) => {
                 if (!error) {
                     await Bares.findByIdAndUpdate(idBar, {
                         $push: {
-                            reserves: user,
+                            reserves: reservaBar,
                         },
                     });
                     const userReserve = await Users.findByIdAndUpdate(user, {
                         $push: {
-                            my_reserve: idBar,
+                            my_reserve:reservaUser, 
                         },
+                        
                     });
-
                     res.status(200).json(
-                        `Reserva hecha por ${userReserve.name}`
+                        userReserve
                     );
                 } else {
                     res.status(401).json("Token no válido");
@@ -207,18 +211,21 @@ const baresControllers = {
     reservarDelete: async (req, res) => {
         try {
             const idBar = { _id: req.params.id };
-            const { user } = req.body;
+            const { user,email,date} = req.body;
+
             jwt.verify(req.token, process.env.SECRET, async (error, data) => {
                 if (!error) {
-                    await Bares.findByIdAndUpdate(idBar, {
-                        $pull: {
-                            reserves: user,
-                        },
+                    await Bares.findByIdAndUpdate(idBar._id, {
+                        // $pull: {
+                        //     reserves: user,
+                        // },
+                        $pull: { reserves: {email: email, date: date} } 
                     });
                     await Users.findByIdAndUpdate(user, {
-                        $pullAll: {
-                            my_reserve: [idBar],
-                        },
+                        // $pull: {
+                        //     my_reserve: {idBar: idBar},
+                        // },
+                        $pull: { my_reserve: { idBar: idBar._id } } 
                     });
                     res.status(200).json("Reserva eliminada");
                 } else {

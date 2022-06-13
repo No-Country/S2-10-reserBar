@@ -1,6 +1,5 @@
-.home{
-    height: 90vh;
-    background: linear-gradient(#14213D, #e5e5e5);
+.home {
+    background: linear-gradient(#14213d, #e5e5e5);
     display: flex;
     justify-content: center;
     align-items: center;
