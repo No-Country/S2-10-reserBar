@@ -26,9 +26,10 @@ const BaresSchema = new monogoose.Schema(
 
         reserves: [
             {
-                type: monogoose.Schema.Types.ObjectId,
-                ref: "Users",
-                autopopulate: true,
+                // type: monogoose.Schema.Types.ObjectId,
+                // ref: "Users",
+                // autopopulate: true
+                type:Object
             },
         ],
     },

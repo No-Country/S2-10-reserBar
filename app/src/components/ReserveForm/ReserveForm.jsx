@@ -4,9 +4,10 @@ import "./ReserveForm.css"
 
 export const ReserveForm =()=>{
 
-const authToken = localStorage.getItem("token")
+const authToken = localStorage.getItem("token");
 
 const id = useParams().id
+
 // var axios = require('axios');
 
 // var config = {
@@ -28,7 +29,6 @@ const id = useParams().id
 
     return(<>
     
-    <h1>HOLASSS</h1>
     {console.log(id)}
     {console.log(authToken)}
     

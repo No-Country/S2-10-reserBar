@@ -35,7 +35,6 @@ const ViewBar = () => {
     
         <BarNav description={infoBar}/>
 
-        <ReserveForm/>
         
     </> 
   )
