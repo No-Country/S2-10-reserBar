@@ -26,7 +26,7 @@ function App() {
             <Route path="/registro" element={<Registro />} />
             <Route path="/:id" element={<ViewBar />} />
             <Route path="/barRegistro" element={<BarRegister />} />
-            <Route path="/User" element={<User></User>}></Route>
+            <Route path="/User" element={<User />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

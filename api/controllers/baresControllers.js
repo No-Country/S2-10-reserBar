@@ -225,7 +225,7 @@ const baresControllers = {
                         // $pull: {
                         //     my_reserve: {idBar: idBar},
                         // },
-                         $pull: { my_reserve: { idBar: idBar._id } } 
+                        $pull: { my_reserve: { idBar: idBar._id } } 
                     });
                     res.status(200).json("Reserva eliminada");
                 } else {

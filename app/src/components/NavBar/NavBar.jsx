@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../assets/logo.svg";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
-  const tokenUsuario = useSelector((state) => state.token.token);
+
+
+const tokenUsuario = useSelector(state=>state.token.token) || localStorage.getItem("token")
+
+
   return (
     <>
       <div className="navbar">
@@ -30,13 +34,22 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="navLink negrita">
-              {tokenUsuario ? "MI PERFIL" : "INICIAR SESIÓN"}
-            </NavLink>
+            {tokenUsuario ?
+            (
+               <NavLink to="/user" className="navLink negrita">
+              MI PERFIL</NavLink>
+              ):
+              (
+                <NavLink to="/login" className="navLink negrita">
+              INICIAR SESIÓN</NavLink>
+               
+              )
+            }
+             
           </li>
         </ul>
-      </div>
       <hr></hr>
+      </div>
     </>
   );
 };
