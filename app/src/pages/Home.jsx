@@ -6,12 +6,10 @@ import { useEffect } from "react";
 import { getBares } from "../store/actions/baresActions";
 
 const Home = () => {
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBares());
   }, []);
-
 
   return (
     <>

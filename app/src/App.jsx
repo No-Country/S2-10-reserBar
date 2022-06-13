@@ -11,6 +11,7 @@ import Layout from "./components/Layout/Layout";
 import ViewBar from "./pages/ViewBar";
 import Registro from "./components/Registro/Registro";
 import BarRegister from "./components/BarRegister/BarRegister";
+import User from "./pages/User";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/registro" element={<Registro />} />
             <Route path="/:id" element={<ViewBar />} />
             <Route path="/barRegistro" element={<BarRegister />} />
+            <Route path="/User" element={<User></User>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./LoginForm.css";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../store/actions/usersActions";
 
 const LoginForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const [tokenUsuario, setTokenUsuario] = useState();
+  const navigate = useNavigate();
 
   const login = async (valores) => {
     console.log(valores);
@@ -28,6 +30,9 @@ const LoginForm = () => {
 
       })
       .catch((err) => console.log(err));
+    setTimeout(() => {
+      navigate("/");
+    }, "2500");
   };
 
   return (
@@ -76,12 +81,11 @@ const LoginForm = () => {
             return errores;
           }}
           onSubmit={(valores, { resetForm }) => {
-            console.log(valores);
             // handleSubmit(valores);
             // setDatosLogin(valores);
             login(valores);
             resetForm();
-            console.log("Formulario enviado");
+
             cambiarFormularioEnviado(true);
             setTimeout(() => cambiarFormularioEnviado(false), 5000);
           }}
@@ -147,7 +151,7 @@ const LoginForm = () => {
                       regístrate aqui
                     </Link>
                   </p>
-              
+
                   <p className="irARegistro">
                     Para registrar tu bar{" "}
                     <Link to="/barRegistro" className="linkRegistro">
