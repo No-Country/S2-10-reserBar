@@ -36,3 +36,6 @@
     flex-direction: column;
     align-items: center
 }
+.menuImg{
+    width: -webkit-fill-available;
+}
