@@ -55,7 +55,7 @@ const Datos = [
   },
 
   {
-    name: "Pablo Vieyra",
+    name: "Pablo Vieyra c:",
     stack: "Full stack developer",
     paragraph1: "",
     paragraph2: "",
