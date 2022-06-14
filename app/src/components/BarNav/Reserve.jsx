@@ -74,8 +74,8 @@ export const Reserve = () => {
     console.log(date);
     console.log(time);
     console.log(visitors);
-    console.log(comments);
-  }, [date, visitors, time, comments]);
+    
+  }, [date, visitors, time]);
 
   return (
     <div className="reserveBox">

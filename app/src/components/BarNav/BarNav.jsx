@@ -3,6 +3,7 @@ import {useState,useParams} from "react";
 import "./DescriptionComp"
 import axios from "axios";
 import { Reserve } from "./Reserve";
+import {menu} from "../../assets/assetsIndex"
 
 const BarNav = ({description}) => {
     const [options,setOptions]= useState(0);
@@ -45,6 +46,10 @@ const reserva = async () => {
       <button>Cancelar reserva</button>
       </div> */}
     </section>  
+    }if(options==2){
+        component=<section className="containerCard">
+          <img className="menuImg" src={menu} alt="menu"  />
+        </section>
     }
 
     
@@ -66,17 +71,13 @@ const reserva = async () => {
           </li>
         
           <li>
-            <button > 
+            <button onClick={e => setOptions(2)} > 
                 Menu 
             </button>
               
           
           </li>
-          <li>
-                <button > 
-                    Reseñas 
-                </button>                  
-          </li>
+          
         </ul>
       </div> 
       
