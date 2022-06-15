@@ -1,0 +1,20 @@
+.chart{
+    display: flex;
+    flex-direction:row;
+    margin-top: 5vh;
+    justify-content: center;
+}
+.cell{
+    display: flex;
+    justify-content: center;
+}
+.recharts-default-legend li{
+    display: flex;
+    
+    margin:0;
+}
+.recharts-default-legend {
+    display: flex;
+    flex-direction:row;
+    
+}
