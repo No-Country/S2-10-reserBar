@@ -2,7 +2,7 @@
     background-color: #14213D;
     border-radius: 10px;
     width: 80%;
-    margin: 3%;
+    margin-top: 2rem;
    
    
 
@@ -32,5 +32,6 @@
     display: flex;
     justify-content: center;
     text-align:center;
-    margin: 5%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
