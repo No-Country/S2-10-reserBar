@@ -152,7 +152,8 @@ const UserComponent = () => {
           )}
         </Box>
       </section>
-      <DashUser/>
+
+      <DashUser />
     </div>
   );
 };

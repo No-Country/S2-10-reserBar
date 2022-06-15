@@ -15,3 +15,9 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .tablaUserReservas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
