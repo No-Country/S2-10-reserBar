@@ -12,7 +12,7 @@ const id = useParams().id
 
 // var config = {
 //   method: 'put',
-//   url: `http://localhost:3005/api/bares/${id}/reserve`,
+//   url: `https://reserbar-api.herokuapp.com/api/bares/${id}/reserve`,
 //   headers: {authToken}
 // };
 

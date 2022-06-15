@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3005/api/bares";
+const API_URL = "https://reserbar-api.herokuapp.com/api/bares";
 
 export async function getAllBares() {
   try {

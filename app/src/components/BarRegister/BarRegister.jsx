@@ -65,7 +65,7 @@ const Registro = () => {
 
         setLoader(true);
         await axios
-            .post("http://localhost:3005/api/bares/register", formData, config)
+            .post("https://reserbar-api.herokuapp.com/api/bares/register", formData, config)
             .then((res) => {
                 setRespuestaBack(res.data.msg);
                 setLoader(false);

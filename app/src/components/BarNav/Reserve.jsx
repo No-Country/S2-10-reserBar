@@ -19,7 +19,7 @@ export const Reserve = () => {
   const reservar = () => {
     var config = {
       method: "put",
-      url: `http://localhost:3005/api/bares/${id_bar}/reserve`,
+      url: `https://reserbar-api.herokuapp.com/api/bares/${id_bar}/reserve`,
       headers: { Authorization: `Bearer ${authToken}` },
       data: {
         user: user_id,
@@ -42,7 +42,7 @@ export const Reserve = () => {
   const eliminaReservar = () => {
     var config = {
       method: "put",
-      url: `http://localhost:3005/api/bares/${id_bar}/unreserve`,
+      url: `https://reserbar-api.herokuapp.com/api/bares/${id_bar}/unreserve`,
       headers: { Authorization: `Bearer ${authToken}` },
       data: {
         user: user,

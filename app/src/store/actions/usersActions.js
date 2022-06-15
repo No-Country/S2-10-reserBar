@@ -9,7 +9,7 @@ export const getUser = (valores, tipoUsuario) => {
     
     if(tipoUsuario) {
       
-      await axios.post("http://localhost:3005/api/bares/login", {
+      await axios.post("https://reserbar-api.herokuapp.com/api/bares/login", {
       email,
       password,
     })
@@ -27,7 +27,7 @@ export const getUser = (valores, tipoUsuario) => {
     else{
       console.log("vicen redux",valores, tipoUsuario);
       await axios
-      .post("http://localhost:3005/api/users/login", {
+      .post("https://reserbar-api.herokuapp.com/api/users/login", {
         email,
         password,
       })
