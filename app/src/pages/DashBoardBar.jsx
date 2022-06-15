@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
-import  ApexChart  from "../components/DashBoard/ApexChart";
-import DashUser from "../components/DashBoard/DashUser";
+
+
 import  DashBar  from "../components/DashBoard/DashBar";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -33,10 +33,10 @@ const DashBoardBar = () => {
     )
   }
   return (<>
-  {/* <ApexChart info={infoBar}/> */}
-  <Chart></Chart>
+  
+  <Chart info={infoBar}></Chart>
   <DashBar info={infoBar}/>
-  {/* <DashUser/> */}
+  
     </>);
 };
 
