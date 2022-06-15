@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./LoginForm.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,13 +9,13 @@ const LoginForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const [tokenUsuario, setTokenUsuario] = useState();
   const navigate = useNavigate();
-const dispatch = useDispatch();
-const userRef = useRef()
-  
+  const dispatch = useDispatch();
+  const userRef = useRef();
+
   const login = async (valores) => {
     const tipoUsuario = userRef.current.checked;
-     
-    await dispatch(getUser(valores,tipoUsuario));
+
+    await dispatch(getUser(valores, tipoUsuario));
     setTimeout(() => {
       navigate("/");
     }, "2500");
@@ -124,15 +124,13 @@ const userRef = useRef()
                     )}
                   />
                 </div>
-                <div>
-                  <label>soy un bar</label>
-                  <input type="checkbox"   ref={userRef}
-                                defaultChecked={false}
-                                >
-
-                  </input>
-                  
-                  
+                <div className="soyBar">
+                  <input
+                    type="checkbox"
+                    ref={userRef}
+                    defaultChecked={false}
+                  ></input>
+                  <label>Soy un bar</label>
                 </div>
                 <div>
                   <button type="submit">Enviar</button>

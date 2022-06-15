@@ -31,12 +31,18 @@ export default function CardStaff({ Date1 }) {
   };
 
   return (
-    
-    <Card sx={{ maxWidth: 345, background: "#14213D", color: "#fff" , marginLeft:"20px"}}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        background: "#14213D",
+        color: "#fff",
+        marginLeft: "20px",
+      }}
+    >
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {Date1.name}
+            {Date1.initials}
           </Avatar>
         }
         title={Date1.name}

@@ -4,8 +4,9 @@ import CardStaff from "./CardStaff";
 
 const Datos = [
   {
-    id:1,
-    name: "Marlon",
+    id: 1,
+    initials: "TL",
+    name: "Marlon TL",
     stack: "Tl",
     paragraph1: "",
     paragraph2: "",
@@ -15,8 +16,9 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
-    id:2,
-    name: "Lele",
+    id: 2,
+    initials: "LG",
+    name: "Leandro Gutierrez",
     stack: "Super Developer",
     paragraph1: "",
     paragraph2: "",
@@ -26,8 +28,9 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
-    id:3,
-    name: "Vicents",
+    id: 3,
+    initials: "VB",
+    name: "Vicente Bayúgar",
     stack: "Full stack developer",
     paragraph1: "",
     paragraph2: "",
@@ -37,8 +40,9 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
-    id:4,
-    name: "Esneider",
+    id: 4,
+    initials: "EB",
+    name: "Esneider Barrera",
     stack: "Full stack developer",
     paragraph1: "",
     paragraph2: "",
@@ -48,8 +52,9 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
-    id:5,
-    name: "Andres",
+    id: 5,
+    initials: "AR",
+    name: "Andres Rubio",
     stack: "Full stack developer",
     paragraph1: "",
     paragraph2: "",
@@ -60,8 +65,9 @@ const Datos = [
   },
 
   {
-    id:6,
-    name: "Pablo Vieyra c:",
+    id: 6,
+    initials: "PV",
+    name: "Pablo Vieyra",
     stack: "Full stack developer",
     paragraph1: "",
     paragraph2: "",
@@ -95,9 +101,7 @@ const AboutUs = () => {
       </section>
       <div className="container-Cards">
         {Datos.map((Dato) => (
-         
-            <CardStaff key={Dato.id}  Date1={Dato}></CardStaff>
-          
+          <CardStaff key={Dato.id} Date1={Dato}></CardStaff>
         ))}
       </div>
     </div>
