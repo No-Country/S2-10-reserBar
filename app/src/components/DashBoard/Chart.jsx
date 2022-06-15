@@ -1,22 +1,28 @@
 import React from 'react'
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import "./chart.css"
- const Chart = () => {
-    const COLORS = ["#fca311", "#14213d", "#d9d9d9", "#FF8042", "#AF19FF"];
+
+ const Chart = (infoBar) => {
+   
+    const COLORS = ["#14213d","#fca311", "#d9d9d9", "#FF8042", "#AF19FF"];
+     let values = infoBar.info.reserves.map((reserva)=>
+      parseInt(reserva.visitors)
+   
+ )
+ const reducer = (accumulator, curr) => accumulator + curr;
+ const result =(values.reduce(reducer)*100)/infoBar.info.capacity;
+
     const pieData = [
         {
-           name: "2 visitantes",
-           value: 10
+           name: "Reservas",
+           value: result
         },
-        {
-           name: "4 visitantes",
-           value: 47.91
-        },
-        
         {
            name: "Por reservar",
-           value: 10.25
+           value: 100-result
         }
+        
+       
      ];
     const CustomTooltip = ({ active, payload, label }) => {
         if (active) {

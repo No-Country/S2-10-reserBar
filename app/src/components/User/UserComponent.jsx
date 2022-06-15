@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import AvatarUser from "./AvatarUser";
 import { Button } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
+import DashUser from "../DashBoard/DashUser";
 
 const UserComponent = () => {
   const [readState, setReadState] = useState(true);
@@ -151,6 +152,7 @@ const UserComponent = () => {
           )}
         </Box>
       </section>
+      <DashUser/>
     </div>
   );
 };
