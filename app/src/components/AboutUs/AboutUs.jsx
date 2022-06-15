@@ -4,6 +4,7 @@ import CardStaff from "./CardStaff";
 
 const Datos = [
   {
+    id:1,
     name: "Marlon",
     stack: "Tl",
     paragraph1: "",
@@ -14,6 +15,7 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
+    id:2,
     name: "Lele",
     stack: "Super Developer",
     paragraph1: "",
@@ -24,6 +26,7 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
+    id:3,
     name: "Vicents",
     stack: "Full stack developer",
     paragraph1: "",
@@ -34,6 +37,7 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
+    id:4,
     name: "Esneider",
     stack: "Full stack developer",
     paragraph1: "",
@@ -44,6 +48,7 @@ const Datos = [
       "https://ca.slack-edge.com/T032Y55Q6VC-U033QG3RU1F-1e2fb8078ce2-512",
   },
   {
+    id:5,
     name: "Andres",
     stack: "Full stack developer",
     paragraph1: "",
@@ -55,6 +60,7 @@ const Datos = [
   },
 
   {
+    id:6,
     name: "Pablo Vieyra c:",
     stack: "Full stack developer",
     paragraph1: "",
@@ -89,9 +95,9 @@ const AboutUs = () => {
       </section>
       <div className="container-Cards">
         {Datos.map((Dato) => (
-          <div style={{ margin: "1%" }}>
-            <CardStaff Date1={Dato}></CardStaff>
-          </div>
+         
+            <CardStaff key={Dato.id}  Date1={Dato}></CardStaff>
+          
         ))}
       </div>
     </div>
