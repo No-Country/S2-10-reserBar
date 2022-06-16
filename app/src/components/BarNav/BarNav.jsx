@@ -4,9 +4,11 @@ import "./DescriptionComp";
 import axios from "axios";
 import { Reserve } from "./Reserve";
 import { menu } from "../../assets/assetsIndex";
+import { useSelector } from "react-redux";
 
 const BarNav = ({ description }) => {
   const [options, setOptions] = useState(0);
+  const authToken = useSelector((state) => state.user.token);
   /* const params = useParams(); */
   const params = description._id;
   let component = null;
@@ -24,6 +26,24 @@ const BarNav = ({ description }) => {
       })
       .catch((err) => console.log(err));
   };
+  if (options == 1 && authToken) {
+    component = (
+      <section className="containerCard">
+        <Reserve />
+        {/* <div className="cardLocal">
+      <p>{description.capacity}</p>
+      <button onClick={reserva}>Reservar</button>
+      <button>Cancelar reserva</button>
+      </div> */}
+      </section>
+    );
+  } else {
+    component = (
+      <section className="containerCard" style={{ textAlign: "center" }}>
+        <h3>Debes estar registrado para generar una reserva</h3>
+      </section>
+    );
+  }
 
   if (options == 0) {
     component = (
@@ -44,18 +64,7 @@ const BarNav = ({ description }) => {
       </article>
     );
   }
-  if (options == 1) {
-    component = (
-      <section className="containerCard">
-        <Reserve />
-        {/* <div className="cardLocal">
-      <p>{description.capacity}</p>
-      <button onClick={reserva}>Reservar</button>
-      <button>Cancelar reserva</button>
-      </div> */}
-      </section>
-    );
-  }
+
   if (options == 2) {
     component = (
       <section className="containerCard">
