@@ -1,0 +1,32 @@
+.reserveDetail{
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+flex-wrap: wrap;
+background-color: #E5E5E5;
+border: 1px solid black;
+padding: 0px 10px;
+}
+.deleteReserve{
+    color: red;
+    -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+}
+.deleteReserve:hover{
+    text-decoration: underline;
+}
+.deleteReserve:active{
+    text-decoration: none;
+}
+
+
+.confirmReserve{
+    color: #33a433;
+}
+
+.finishedReserve{
+    color: #000da0;
+}

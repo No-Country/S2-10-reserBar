@@ -1,6 +1,18 @@
 .reserveBox{
 display: flex;
 flex-direction: column;
-
+align-items: center;
 
 }
+
+.reserveInput{
+    border-radius: 3px;
+    border: none;
+    width: 85%;
+    height: 50px;
+    font-size: 1.5rem;
+    padding: 5px;
+    background-color: #FCA311;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 3px 0px 4px rgb(255 255 255 / 15%);
+}
+

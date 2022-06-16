@@ -14,7 +14,7 @@ const BarNav = ({description}) => {
 const reserva = async () => {
     
       await axios
-     .put(`http://localhost:3005/api/bares/${params}/reserve`, {
+     .put(`https://reserbar-api.herokuapp.com/api/bares/${params}/reserve`, {
        email,
        password,
      })
@@ -38,7 +38,7 @@ const reserva = async () => {
     } if(options==1) {
       component = 
       <section className="containerCard" >
-        <Reserve/>
+        <Reserve props={description}/>
       {/* <div className="cardLocal">
       <p>{description.capacity}</p>
       <button onClick={reserva}>Reservar</button>
