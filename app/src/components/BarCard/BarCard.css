@@ -70,3 +70,9 @@ white-space: nowrap;
     margin: 10px;
     width: 45px;
 }
+
+@media (max-width: 976px) {
+    .barCard{
+        margin: 0px 10px 60px 10px;
+    }
+}

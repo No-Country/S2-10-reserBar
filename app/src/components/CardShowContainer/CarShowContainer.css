@@ -18,7 +18,7 @@
 }
 
 .cardShow{
-    max-width: 1440px;
+    max-width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -33,5 +33,11 @@
     
     margin: 0px 15px 60px 15px;
     align-self: center;
+}
+
+@media (max-width: 976px) {
+    .arrow{
+        margin: 0px 0px 60px 0px;
+    }
 }
 
