@@ -1,43 +1,59 @@
-import React,{useState,useEffect} from "react";
-
-
-import  DashBar  from "../components/DashBoard/DashBar";
+import React, { useState, useEffect } from "react";
+import { logOut } from "../store/actions/usersActions";
+import DashBar from "../components/DashBoard/DashBar";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Chart  from "../components/DashBoard/Chart";
+import { useSelector, useDispatch } from "react-redux";
+import Chart from "../components/DashBoard/Chart";
+import { Navigate } from "react-router-dom";
 const DashBoardBar = () => {
-  const [infoBar,setInfoBar] = useState({}) ; 
+  const [infoBar, setInfoBar] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const data = useSelector((state)=> state.user.data)
-  
-  /* console.log(infoBar);  */
-  const {id} = useParams();
-   
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
+  const authToken = useSelector((state) => state.user.token);
+  const dispatch = useDispatch();
+
+  const { id } = useParams();
+
+  const desloguearse = () => {
+    dispatch(logOut());
   };
-  useEffect  (  () => {
-       fetch(`https://reserbar-api.herokuapp.com/api/bares/${id}`, requestOptions)
-      .then(response => response.json() )
-      .then(response => {setInfoBar(response.bares);
-        setIsLoading(false); }
-         )
-      .catch(error => console.log('error', error)); 
-      
-  }, [])
-  
-  if(isLoading){
-    return(
-      <h2 style={{textAlign:"center"}}>Cargando...</h2>
-    )
+
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+  useEffect(() => {
+    fetch(`https://reserbar-api.herokuapp.com/api/bares/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((response) => {
+        setInfoBar(response.bares);
+        setIsLoading(false);
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
+  if (isLoading) {
+    return <h2 style={{ textAlign: "center" }}>Cargando...</h2>;
   }
-  return (<>
-  
-  <Chart info={infoBar}></Chart>
-  <DashBar info={infoBar}/>
-  
-    </>);
+  return (
+    <>
+      {authToken ? (
+        <>
+          <Chart info={infoBar}></Chart>
+          <DashBar info={infoBar} />
+          <div className="cerrarSesión">
+            <button
+              className="cerrarSesiónButton"
+              onClick={() => desloguearse()}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        </>
+      ) : (
+        <Navigate to={"/"} />
+      )}
+    </>
+  );
 };
 
 export default DashBoardBar;
