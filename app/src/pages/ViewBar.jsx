@@ -15,7 +15,7 @@ const ViewBar = () => {
     redirect: 'follow'
   };
   useEffect (() => {
-    fetch(`http://localhost:3005/api/bares/${id}`, requestOptions)
+    fetch(`https://reserbar-api.herokuapp.com/api/bares/${id}`, requestOptions)
       .then(response => response.json() )
       .then(response => setInfoBar(response.bares))
       .catch(error => console.log('error', error)); 

@@ -1,9 +1,10 @@
 import "./ReserveLine.css";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 
 export const ReserveLine = (props) => {
-  const authToken = localStorage.getItem("token");
+  const authToken = useSelector((state) => state.user.token);
   const today = new Date();
   const reserveDay = new Date(props.reserva.date);
 

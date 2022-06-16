@@ -1,0 +1,37 @@
+.ContainerTitle{
+    background-color: #14213D;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 2rem;
+   
+   
+
+
+}
+.container-about{
+    display: flex;
+    justify-content: center;
+    text-align:center;
+}
+
+.TitleAbout{
+    color: #ffff;
+    font-size: 250%
+}
+
+
+
+.ContenidoAbout{
+    padding-left: 15%;
+    padding-right: 15%;
+     color: #ffff;
+     font-weight: lighter;
+}
+
+.container-Cards{
+    display: flex;
+    justify-content: center;
+    text-align:center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}

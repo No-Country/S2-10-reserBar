@@ -1,13 +1,17 @@
 import { useParams } from "react-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import "./Reserve.css";
 import { useEffect, useState } from "react";
 import { ReserveLine } from "./ReserveLine";
 
 export const Reserve = (props) => {
   const id_bar = useParams().id;
-  const authToken = localStorage.getItem("token");
-  const user_id = localStorage.getItem("user_id");
+  const authToken = useSelector((state) => state.user.token)
+  const user_id = useSelector((state) => state.user.data._id)
+
+  console.log(authToken)
+  console.log(user_id)
 
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
@@ -99,7 +103,7 @@ let today = actualDate.getFullYear()+'-'+(actualDate.getMonth()+1).toLocaleStrin
       ) : (
         <></>
       )}
-      
+
         <button onClick={(e) => reservar()}>Reservar</button>
 
       {userReserves ? 

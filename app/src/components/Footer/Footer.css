@@ -1,19 +1,33 @@
 .footer{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items:flex-start;
+    justify-content:center;
     width: 100%;
     background: rgba(2,0,36,1);
     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    padding-top: 4rem;
     
 }
 
 .seccion{
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
+}
+
+.sobreNos{
+    margin-right: 3rem;
+}
+
+
+.compañia{
+    margin-left: 3rem;
+}
+
+.divsLinks h3{
+    
+    margin-right: 3rem;
 }
 
 

@@ -16,7 +16,7 @@ const Registro = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await axios
-      .post("http://localhost:3005/api/users/register", {
+      .post("https://reserbar-api.herokuapp.com/api/users/register", {
         name,
         last_name,
         email,

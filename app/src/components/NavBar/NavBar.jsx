@@ -7,11 +7,14 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
 
 
-const tokenUsuario = useSelector(state=>state.token.token) || localStorage.getItem("token")
 
+const barData= useSelector ( (state)=>state.user.data)
 
+const tokenUsuario = useSelector(state=>state.user.token)
+ 
   return (
     <>
+      
       <div className="navbar">
         <ul className="navLinks">
           <li>
@@ -35,7 +38,8 @@ const tokenUsuario = useSelector(state=>state.token.token) || localStorage.getIt
           </li>
           <li>
             {tokenUsuario ?
-            (
+            (  barData.location ?<NavLink to={`/dashboard/${barData._id}`} className="navLink negrita">
+            MI PERFIL</NavLink> :
                <NavLink to="/user" className="navLink negrita">
               MI PERFIL</NavLink>
               ):
