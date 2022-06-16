@@ -7,13 +7,33 @@ import { useState, useEffect } from "react";
 export const CardShowContainer = () => {
   const bars = useSelector((state) => state.bars.bars);
   const [current, setCurrent] = useState(0);
-  const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
+  /* const [mobile, setMobile] = useState(false); */
+  const [mobile, setMobile] = useState({matches: window.innerWidth > 768 ? true : false});
+ /*  useEffect(() => {
     const match = window.matchMedia(`(max-width: 768px)`);
     console.log(match);
     setMobile(match.matches);
-  }, [mobile]);
+    const match = window.matchMedia(`(max-width: 768px)`).   addEventListener("change", () => {
+    setMobile(match.matches)  ;
+  });
+  }, []); */
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 976px)");
+    mql.addEventListener("change", resize);
+    function resize(e) {
+        if (e.matches) { // If media query matches
+            setMobile(true);
+            
+        } else {
+          setMobile(false);
+          console.log(mobile);
+        }
+    }
+    return () => {
+        mql.removeEventListener("change", resize);
+    }
+},[]);
 
   let lengthBars = "";
   {
