@@ -1,9 +1,10 @@
-import { GET_USER } from "../actions/usersActions";
-import { GET_BAR} from "../actions/usersActions"
-import {TRAER_USUARIO} from "../actions/usersActions"
+import { GET_USER, LOGOUT } from "../actions/usersActions";
+import { GET_BAR } from "../actions/usersActions";
+import { TRAER_USUARIO } from "../actions/usersActions";
+
 const initialState = {
   token: null,
-  data: null
+  data: null,
 };
 
 export default (state = initialState, action) => {
@@ -12,19 +13,25 @@ export default (state = initialState, action) => {
       return {
         ...state,
         token: action.payload.token,
-        data: action.payload.user
+        data: action.payload.user,
       };
     case GET_BAR:
-        return {
-          ...state,
-          token: action.payload.token,
-          data: action.payload.bar
-        };
+      return {
+        ...state,
+        token: action.payload.token,
+        data: action.payload.bar,
+      };
     case TRAER_USUARIO:
       return {
         ...state,
-        data:action.payload.user
-      }
+        data: action.payload.user,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        data: null,
+        token: null,
+      };
     default:
       return state;
   }

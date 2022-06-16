@@ -8,9 +8,14 @@ import AvatarUser from "./AvatarUser";
 import { Button } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import DashUser from "../DashBoard/DashUser";
+import { logOut } from "../../store/actions/usersActions";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const UserComponent = () => {
   const [readState, setReadState] = useState(true);
+  const dispatch = useDispatch();
+  const authToken = useSelector((state) => state.user.token);
 
   const Read = () => {
     if (readState == true) {
@@ -24,131 +29,146 @@ const UserComponent = () => {
     }
   };
 
+  const desloguearse = () => {
+    dispatch(logOut());
+  };
+
   return (
     <div>
-    <div className="Container">
-      <section className="box">
-        <div className="avatar">
-          <AvatarUser></AvatarUser>
-          <IconButton onClick={() => Read()}>
-            <EditIcon />
-          </IconButton>
-        </div>
-        <h1>Datos Cuentas</h1>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "80%" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div className="container">
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Usuario"
-              defaultValue="Usuario"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Email"
-              defaultValue="Email"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-         
+      {authToken ? (
+        <>
+          <div className="Container">
+            <section className="box">
+              <div className="avatar">
+                <AvatarUser></AvatarUser>
+                <IconButton onClick={() => Read()}>
+                  <EditIcon />
+                </IconButton>
+              </div>
+              <h1>Datos Cuentas</h1>
+              <Box
+                component="form"
+                sx={{
+                  "& .MuiTextField-root": { m: 1, width: "80%" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <div className="container">
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Usuario"
+                    defaultValue="Usuario"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Email"
+                    defaultValue="Email"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                </div>
+              </Box>
+            </section>
+            <section className="box">
+              <h1>Datos personales</h1>
+
+              <Box
+                component="form"
+                sx={{
+                  "& .MuiTextField-root": { m: 1, width: "100%" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <div className="container">
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Nombre y Apellidos"
+                    defaultValue="Nombre y Apellidos"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Documentos"
+                    defaultValue="Documentos"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Telefono"
+                    defaultValue="Telefono"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Telefono Alternativo"
+                    defaultValue="Telefono Alternativo"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Fecha De Nacimiento"
+                    defaultValue="Fecha De Nacimiento"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                  <TextField
+                    fullWidth
+                    id="outlined-read-only-input"
+                    label="Dirreccion"
+                    defaultValue="Dirreccion"
+                    InputProps={{
+                      readOnly: readState,
+                    }}
+                  />
+                </div>
+
+                {readState == false ? (
+                  <>
+                    <IconButton onClick={() => Save()}>
+                      <SaveIcon />
+                    </IconButton>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </Box>
+            </section>
           </div>
-        </Box>
-      </section>
-      <section className="box">
-        <h1>Datos personales</h1>
-
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "100%" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div className="container">
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Nombre y Apellidos"
-              defaultValue="Nombre y Apellidos"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Documentos"
-              defaultValue="Documentos"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Telefono"
-              defaultValue="Telefono"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Telefono Alternativo"
-              defaultValue="Telefono Alternativo"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Fecha De Nacimiento"
-              defaultValue="Fecha De Nacimiento"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Dirreccion"
-              defaultValue="Dirreccion"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
+          <DashUser />
+          <div className="cerrarSesión">
+            <button
+              className="cerrarSesiónButton"
+              onClick={() => desloguearse()}
+            >
+              Cerrar sesión
+            </button>
           </div>
-
-          {readState == false ? (
-            <>
-              <IconButton onClick={() => Save()}>
-                <SaveIcon />
-              </IconButton>
-            </>
-          ) : (
-            <></>
-          )}
-        </Box>
-      </section>
-
-      
-    </div>
-      <DashUser />
+        </>
+      ) : (
+        <Navigate to={"/"} />
+      )}
     </div>
   );
 };
