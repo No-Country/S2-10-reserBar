@@ -12,6 +12,9 @@ const NavBar = () => {
   return (
     <>
       <div className="navbar">
+        <NavLink to="/" className="logoRBCelu">
+          <img src={logo} alt="logo" width={75} height={75} />
+        </NavLink>
         <ul className="navLinks">
           <li>
             <NavLink to="/" className="navLink negrita">
@@ -24,7 +27,7 @@ const NavBar = () => {
             </NavLink>
           </li>
 
-          <NavLink to="/">
+          <NavLink to="/" className="logoRB">
             <img src={logo} alt="logo" width={75} height={75} />
           </NavLink>
           <li>
@@ -53,8 +56,8 @@ const NavBar = () => {
             )}
           </li>
         </ul>
-        <hr></hr>
       </div>
+      <hr></hr>
     </>
   );
 };
