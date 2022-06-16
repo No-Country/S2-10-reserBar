@@ -2,19 +2,20 @@ import { useParams } from "react-router";
 import axios from "axios";
 import "./Reserve.css";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import {useDispatch} from "react-redux";
+import { traerUsuario } from "../../store/actions/usersActions";
 
 export const Reserve = () => {
   const id_bar = useParams().id;
-  const authToken = localStorage.getItem("token");
-  const user_id = localStorage.getItem("user_id");
+  const authToken = useSelector((state) => state.user.token)
+  const user_id = useSelector((state) => state.user.data._id)
 
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
   const [visitors, setVisitors] = useState(Number);
- 
-  console.log(id_bar);
-  console.log(authToken);
-  console.log(user_id);
+  const dispatch = useDispatch();
+  
 
   const reservar = () => {
     var config = {
@@ -31,8 +32,9 @@ export const Reserve = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
-        // alert("Reserva para " + visitors + " personas el dia: " + date + " a las " + time);
+        
+        dispatch(traerUsuario(authToken,user_id))
+        
       })
       .catch(function (error) {
         console.log(error);
@@ -70,12 +72,7 @@ export const Reserve = () => {
       });
   };
 
-  useEffect(() => {
-    console.log(date);
-    console.log(time);
-    console.log(visitors);
-    
-  }, [date, visitors, time]);
+
 
   return (
     <div className="reserveBox">
