@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Reserve.css";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import {useDispatch} from "react-redux";
+import { traerUsuario } from "../../store/actions/usersActions";
 
 export const Reserve = () => {
   const id_bar = useParams().id;
@@ -12,7 +14,7 @@ export const Reserve = () => {
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
   const [visitors, setVisitors] = useState(Number);
- 
+  const dispatch = useDispatch();
   
 
   const reservar = () => {
@@ -30,8 +32,9 @@ export const Reserve = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
-        // alert("Reserva para " + visitors + " personas el dia: " + date + " a las " + time);
+        
+        dispatch(traerUsuario(authToken,user_id))
+        
       })
       .catch(function (error) {
         console.log(error);

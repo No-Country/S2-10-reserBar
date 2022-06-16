@@ -46,15 +46,23 @@ export const getUser = (valores, tipoUsuario) => {
 
 export const traerUsuario = (token,id)=>{
   return async (dispatch)=>{
-    await axios.get(`https://reserbar-api.herokuapp.com/api/users/${id}`,{token})
+    var config = {
+      method: "get",
+      url: `https://reserbar-api.herokuapp.com/api/users/${id}`,
+      headers: { Authorization: `Bearer ${token}` }
+     
+    };
+    await axios(config)
     .then ((res)=>{
       dispatch( {
         type:TRAER_USUARIO,
         payload: res.data,
       })
-      console.log(res.data);
+      
     } )
     .catch((err) => console.log(err))
+
+ 
   } 
 
 }

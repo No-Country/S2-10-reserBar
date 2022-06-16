@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
     case TRAER_USUARIO:
       return {
         ...state,
-        data:action.payload
+        data:action.payload.user
       }
     default:
       return state;

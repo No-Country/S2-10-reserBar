@@ -5,22 +5,19 @@ import {useState,useEffect} from "react";
 import {useDispatch} from "react-redux";
 import { traerUsuario } from "../../store/actions/usersActions";
 const DashUser = () => {
-  const [flag,setFlag]=useState(false);
+  
   const userData = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   const authToken = useSelector((state) => state.user.token);
   const allBars = useSelector((state) => state.bars.bars);
   
-  // prueba andresrubio
-  const [reservas,setReservas] = useState(userData.my_reserve)
   
-  console.log(reservas);
+  
+  
+  
 
   const eliminaReservar = (date,idBar) => {
-    flag ? setFlag(false) : setFlag(true)
-    const reservasFiltradas=reservas.filter(reserva=>reserva.idBar!=idBar && reserva.date!=date)
-    setReservas(reservasFiltradas)
-    console.log(reservasFiltradas);
+    
     var config = {
       method: "put",
       url: `https://reserbar-api.herokuapp.com/api/bares/${idBar}/unreserve`,
@@ -35,8 +32,10 @@ const DashUser = () => {
 
     axios(config)
       .then(function (response) {
-        /* dispatch(traerUsuario(authToken,userData._id)) */
-        console.log(JSON.stringify(response.data));
+        dispatch(traerUsuario(authToken,userData._id))
+        alert(JSON.stringify(response.data))
+        
+        ;
       })
       .catch(function (error) {
         console.log(error);
@@ -57,8 +56,8 @@ const DashUser = () => {
           </tr>
 
           {userData ? (
-            /* userData.my_reserve.map((reserva, index) => ( */
-              reservas.map((reserva, index) => (
+            userData.my_reserve.map((reserva, index) => (
+             
               <tr key={index}>
                 <td>
                   {reserva.idBar
