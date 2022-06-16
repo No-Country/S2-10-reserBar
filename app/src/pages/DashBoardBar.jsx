@@ -9,10 +9,10 @@ const DashBoardBar = () => {
   const [infoBar,setInfoBar] = useState({}) ; 
   const [isLoading, setIsLoading] = useState(true);
   const data = useSelector((state)=> state.user.data)
-  console.log(data);
+  
   /* console.log(infoBar);  */
   const {id} = useParams();
-  console.log(id); 
+   
   var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -26,10 +26,10 @@ const DashBoardBar = () => {
       .catch(error => console.log('error', error)); 
       
   }, [])
-  console.log(infoBar==true)
+  
   if(isLoading){
     return(
-      <>estoy cargando</>
+      <h2 style={{textAlign:"center"}}>Cargando...</h2>
     )
   }
   return (<>

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./DashBar.css"
 
 const DashBar = (infoBar) => {
-  console.log(infoBar.info)
+  
   return (
     <table>
       <tbody>

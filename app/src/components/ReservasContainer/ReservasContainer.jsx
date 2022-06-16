@@ -7,7 +7,7 @@ import { getBares } from "../../store/actions/baresActions";
 export const ReservasContainer = () => {
   const dispatch = useDispatch();
   const bars = useSelector((state) => state.bars.bars);
-  console.log(bars);
+  
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);

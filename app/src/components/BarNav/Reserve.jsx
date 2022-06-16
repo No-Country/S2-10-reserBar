@@ -2,19 +2,18 @@ import { useParams } from "react-router";
 import axios from "axios";
 import "./Reserve.css";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export const Reserve = () => {
   const id_bar = useParams().id;
-  const authToken = localStorage.getItem("token");
-  const user_id = localStorage.getItem("user_id");
+  const authToken = useSelector((state) => state.user.token)
+  const user_id = useSelector((state) => state.user.data._id)
 
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
   const [visitors, setVisitors] = useState(Number);
  
-  console.log(id_bar);
-  console.log(authToken);
-  console.log(user_id);
+  
 
   const reservar = () => {
     var config = {
@@ -70,12 +69,7 @@ export const Reserve = () => {
       });
   };
 
-  useEffect(() => {
-    console.log(date);
-    console.log(time);
-    console.log(visitors);
-    
-  }, [date, visitors, time]);
+
 
   return (
     <div className="reserveBox">

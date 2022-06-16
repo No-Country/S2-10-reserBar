@@ -1,0 +1,17 @@
+.reservationButton-dashboard  {
+    height: 40px;
+    font-size: 100%;
+    font-style: italic;
+    width: 100%;
+    border: none;
+    background-color: #FCA311;
+}
+
+.reservationButton-dashboard:hover {
+    border: #303030 solid 1px;
+}
+
+
+
+  
+    

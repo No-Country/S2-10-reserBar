@@ -25,6 +25,7 @@ const UserComponent = () => {
   };
 
   return (
+    <div>
     <div className="Container">
       <section className="box">
         <div className="avatar">
@@ -61,15 +62,7 @@ const UserComponent = () => {
                 readOnly: readState,
               }}
             />
-            <TextField
-              fullWidth
-              id="outlined-read-only-input"
-              label="Contraseña"
-              defaultValue="Contraseña"
-              InputProps={{
-                readOnly: readState,
-              }}
-            />
+         
           </div>
         </Box>
       </section>
@@ -153,6 +146,8 @@ const UserComponent = () => {
         </Box>
       </section>
 
+      
+    </div>
       <DashUser />
     </div>
   );
