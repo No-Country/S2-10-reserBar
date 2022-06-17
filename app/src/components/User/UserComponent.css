@@ -9,8 +9,9 @@
 .box{
 
     padding : 3%;
-
+    
 }
+
 
 .avatar{
     display: flex;
@@ -30,8 +31,33 @@
 
 }
 
+.cerrarSesión{
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
 
+.cerrarSesiónButton{
+    font-size: 1.2rem;
+    font-style: italic;
+    border: #303030 solid 1px;
+    background-color: #FCA311;
+    padding: 10px;
+    border-radius: 3px;
+    color: black;
+}
 
-
+@media (max-width: 976px) {
+    .Container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .box{
+        width: 90%;
+    }
+}
 
 

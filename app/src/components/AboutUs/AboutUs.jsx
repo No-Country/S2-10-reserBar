@@ -7,7 +7,7 @@ const Datos = [
     id: 1,
     initials: "TL",
     name: "Marlon TL",
-    stack: "Tl",
+    stack: "Team Leader",
     paragraph1: "",
     paragraph2: "",
     paragraph3: "",
@@ -19,7 +19,7 @@ const Datos = [
     id: 2,
     initials: "LG",
     name: "Leandro Gutierrez",
-    stack: "Super Developer",
+    stack: "Full stack Developer",
     paragraph1: "",
     paragraph2: "",
     paragraph3: "",
@@ -69,7 +69,8 @@ const Datos = [
     initials: "PV",
     name: "Pablo Vieyra",
     stack: "Full stack developer",
-    paragraph1: "",
+    paragraph1:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati    quasi assumenda eligendi numquam deleniti iusto illo ratione    consectetur. Delectus modi possimus dolorem maxime fugit    molestias debitis placeat velit qui",
     paragraph2: "",
     paragraph3: "",
     paragraph4: "",
@@ -83,7 +84,7 @@ const AboutUs = () => {
     <div>
       <section className="container-about">
         <div className="ContainerTitle">
-          <h1 className="TitleAbout">Sobre Nosotros</h1>
+          <h2 className="TitleAbout">Sobre Nosotros</h2>
           <h3 className="ContenidoAbout">
             {" "}
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati

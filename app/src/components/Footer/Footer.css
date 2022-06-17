@@ -2,7 +2,7 @@
     display: flex;
     align-items:flex-start;
     justify-content:center;
-    width: 100%;
+    
     background: rgba(2,0,36,1);
     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
     padding-top: 4rem;
@@ -12,7 +12,7 @@
 .seccion{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
@@ -25,10 +25,28 @@
     margin-left: 3rem;
 }
 
-.divsLinks h3{
+.divsLinks h4{
     
     margin-right: 3rem;
 }
 
 
-
+@media (max-width: 768px) {
+    .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .compañia{
+        margin: 0;
+    }
+    .sobreNos{
+        margin: 0;
+    }
+    .divsLinks h4{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .footer h3{
+        text-align: center;
+    }
+}

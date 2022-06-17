@@ -5,17 +5,16 @@ import logo from "../../assets/logo.svg";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  const barData = useSelector((state) => state.user.data);
 
+  const tokenUsuario = useSelector((state) => state.user.token);
 
-
-const barData= useSelector ( (state)=>state.user.data)
-
-const tokenUsuario = useSelector(state=>state.user.token)
- 
   return (
     <>
-      
       <div className="navbar">
+        <NavLink to="/" className="logoRBCelu">
+          <img src={logo} alt="logo" width={75} height={75} />
+        </NavLink>
         <ul className="navLinks">
           <li>
             <NavLink to="/" className="navLink negrita">
@@ -28,7 +27,7 @@ const tokenUsuario = useSelector(state=>state.user.token)
             </NavLink>
           </li>
 
-          <NavLink to="/">
+          <NavLink to="/" className="logoRB">
             <img src={logo} alt="logo" width={75} height={75} />
           </NavLink>
           <li>
@@ -37,23 +36,28 @@ const tokenUsuario = useSelector(state=>state.user.token)
             </NavLink>
           </li>
           <li>
-            {tokenUsuario ?
-            (  barData.location ?<NavLink to={`/dashboard/${barData._id}`} className="navLink negrita">
-            MI PERFIL</NavLink> :
-               <NavLink to="/user" className="navLink negrita">
-              MI PERFIL</NavLink>
-              ):
-              (
-                <NavLink to="/login" className="navLink negrita">
-              INICIAR SESIÓN</NavLink>
-               
+            {tokenUsuario ? (
+              barData.location ? (
+                <NavLink
+                  to={`/dashboard/${barData._id}`}
+                  className="navLink negrita"
+                >
+                  {barData.name.toUpperCase()}
+                </NavLink>
+              ) : (
+                <NavLink to="/user" className="navLink negrita">
+                  {barData.name.toUpperCase()}
+                </NavLink>
               )
-            }
-             
+            ) : (
+              <NavLink to="/login" className="navLink negrita">
+                INICIAR SESIÓN
+              </NavLink>
+            )}
           </li>
         </ul>
-      <hr></hr>
       </div>
+      <hr></hr>
     </>
   );
 };

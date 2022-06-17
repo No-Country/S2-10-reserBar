@@ -4,14 +4,13 @@ import { useSelector } from "react-redux";
 import "./Reserve.css";
 import { useEffect, useState } from "react";
 import { ReserveLine } from "./ReserveLine";
+import {useDispatch} from "react-redux";
+import { traerUsuario } from "../../store/actions/usersActions";
 
 export const Reserve = (props) => {
   const id_bar = useParams().id;
   const authToken = useSelector((state) => state.user.token)
   const user_id = useSelector((state) => state.user.data._id)
-
-  console.log(authToken)
-  console.log(user_id)
 
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
@@ -26,12 +25,10 @@ export const Reserve = (props) => {
     },[])
 
 
-
-
-
-
 const actualDate = new Date()
 let today = actualDate.getFullYear()+'-'+(actualDate.getMonth()+1).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+'-'+actualDate.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+  const dispatch = useDispatch();
+  
 
   const reservar = () => {
     var config = {
@@ -48,20 +45,48 @@ let today = actualDate.getFullYear()+'-'+(actualDate.getMonth()+1).toLocaleStrin
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
-        // alert("Reserva para " + visitors + " personas el dia: " + date + " a las " + time);
+        
+        dispatch(traerUsuario(authToken,user_id))
+        
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  
-  // useEffect(() => {
-  //   console.log(date);
-  //   console.log(time);
-  //   console.log(visitors);
-  // }, [date, visitors, time]);
+
+  // const eliminaReservar = () => {
+  //   var config = {
+  //     method: "put",
+  //     url: `https://reserbar-api.herokuapp.com/api/bares/${id_bar}/unreserve`,
+  //     headers: { Authorization: `Bearer ${authToken}` },
+  //     data: {
+  //       user: user,
+  //       date:"date",
+  //       email:"andresrubio@reserbar.com",
+  //     },
+  //   };
+  //   <input
+  //     id="effective-date"
+  //     type="date"
+  //     name="effective-date"
+  //     minlength="1"
+  //     maxlength="64"
+  //     placeholder=" "
+  //     autocomplete="nope"
+  //     required="required"
+  //   ></input>;
+
+  //   axios(config)
+  //     .then(function (response) {
+  //       console.log(JSON.stringify(response.data));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+
 
   return (
     <div className="reserveBox">

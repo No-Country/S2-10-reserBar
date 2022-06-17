@@ -8,8 +8,9 @@ import { ReserveForm } from "../components/ReserveForm/ReserveForm";
 
 const ViewBar = () => {
    const [infoBar,setInfoBar] = useState({}) ; 
-  /* console.log(infoBar);  */
+  
   const {id} = useParams();
+  
   var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -21,10 +22,7 @@ const ViewBar = () => {
       .catch(error => console.log('error', error)); 
       
   }, [])
-  /*  */
-  
-  
-  
+   
 
   return (
       <>

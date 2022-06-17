@@ -28,7 +28,8 @@
 }
 
 .irARegistro{
-	color: white
+	color: white;
+	text-align: center;
 }
 
 .linkRegistro{
@@ -135,3 +136,16 @@
 	width: 5%;
 }
 
+@media (max-width: 976px) {
+	.divFantasma{
+		display: none;
+	}
+	.contenedorLogin{
+		width: 100%;
+		background-position: 90%;
+		min-height: 80vh;
+	}
+	.cajaLogin{
+		width: 80%;
+	}
+}
