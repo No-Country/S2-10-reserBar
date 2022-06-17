@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
+// import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import NavBoots from "../NavBar/NavBoots";
 
 const Layout = () => {
   return (
@@ -14,7 +15,8 @@ const Layout = () => {
 
       }}
     >
-      <NavBar />
+      {/* <NavBar /> */}
+      <NavBoots />
       <section>
         <Outlet />
       </section>
