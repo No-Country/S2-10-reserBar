@@ -11,7 +11,7 @@ const Layout = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-
+        overflowX: "hidden"
       }}
     >
       <NavBar />
