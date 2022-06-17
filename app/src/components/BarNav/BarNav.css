@@ -58,7 +58,52 @@
 
 @media (max-width: 976px) {
     .BarOptions{
-        margin-right: 0;
+        margin-right: 0px;
+        margin-left: 0px;
+        width:100%;
+        padding:0px;
     }
-    
+    .BarOptions ul{
+        margin-right: 0px;
+        margin-left: 0px;
+        display: flex;
+        justify-content: space-around;
+        padding:0px;
+        
+    }
+    .BarOptions li{
+        margin: 0 15px;
+        max-width: 80%;
+
+    }
+    .BarOptions button{
+        margin-right: 0px;
+        margin-left: 0px;
+       
+        font-size: 1rem;
+    }
+    .containerCard{
+        padding: 10px ;
+        margin-top: 0px;
+        width:90%
+    }
+    .BarInfo{
+        padding: 20px 10px;
+        
+        
+    }
+    .containerCard p{
+        padding: 0;
+        margin:0;
+        
+    }
+    .cardLocal {
+        width: 80%;
+        margin-top: 2vh;
+        
+    }
+    .cardLocal p {
+        padding: 10px 0;
+        
+    }
 }
