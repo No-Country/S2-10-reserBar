@@ -9,7 +9,7 @@ export const CardShowContainer = () => {
   const [current, setCurrent] = useState(0);
 
   const [mobile, setMobile] = useState({
-    matches: window.innerWidth > 768 ? true : false,
+    matches: window.innerWidth > 768 ? false : true,
   });
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export const CardShowContainer = () => {
         />
 
         {unBar || tresBares ? (
-          mobile ? (
+          mobile.matches ? (
             unBar.map((bar) => <BarCard bar={bar} key={bar._id} />)
           ) : (
             tresBares.map((bar) => <BarCard bar={bar} key={bar._id} />)

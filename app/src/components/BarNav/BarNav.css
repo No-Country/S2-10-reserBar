@@ -16,6 +16,7 @@
     border-radius: 3px;
     padding: 10px;
     margin-right: 1rem;
+    color: black;
 }
 
 .BarInfo{
@@ -29,7 +30,7 @@
     width:50%;
     margin:auto;
     padding:4rem;
-    height: -webkit-fill-available;
+    /* hei */
     border-radius: 5px;
 }
 
