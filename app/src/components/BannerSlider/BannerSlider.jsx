@@ -13,7 +13,7 @@ const BannerSlider = () => {
 
   setTimeout(() => {
     return nextSlide()
-  }, 5000);
+  }, 3000);
 
   const nextSlide = () => {
     setCurrent(current === lengthBanners - 1 ? 0 : current + 1);
