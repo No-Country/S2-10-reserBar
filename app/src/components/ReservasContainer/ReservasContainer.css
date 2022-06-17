@@ -18,7 +18,7 @@
     width: 80vw;
     /* height: 80vh; */
     justify-content: center;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
 }
 
 .asideBusqueda{
@@ -33,4 +33,15 @@ max-height: 500px;
 .asideBusqueda form{
     display: flex;
 flex-direction: column;
+}
+
+@media (max-width: 976px) {
+    .ReservasContainer{
+        flex-direction:column-reverse;
+        align-items: center;
+    }
+    .asideBusqueda{
+        width: 70%;
+        margin-bottom: 2rem;
+    }
 }

@@ -16,7 +16,7 @@
 
 .TitleAbout{
     color: #ffff;
-    font-size: 250%
+    font-size: 2rem
 }
 
 
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: center;
     text-align:center;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin: 2rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
 }

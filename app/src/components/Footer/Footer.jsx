@@ -6,48 +6,48 @@ const Footer = () => {
     <div style={{ background: "rgba(2,0,36,1)" }}>
       <div className="footer">
         <div className="sobreNos">
-          <h2 to="/login" style={{ color: "#e5e5e5" }}>
+          <h3 to="/login" style={{ color: "#e5e5e5" }}>
             Sobre Nosotros
-          </h2>
+          </h3>
           <section className="seccion">
             <div className="divsLinks">
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Sobre Nosotros
-              </h3>
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              </h4>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Nuestros Servicios
-              </h3>
+              </h4>
             </div>
             <div className="divsLinks">
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Contactanos
-              </h3>
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              </h4>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Compañia
-              </h3>
+              </h4>
             </div>
           </section>
         </div>
         <div className="compañia">
-          <h2 to="/login" style={{ color: "#e5e5e5" }}>
+          <h3 to="/login" style={{ color: "#e5e5e5" }}>
             Compañia
-          </h2>
+          </h3>
           <section className="seccion">
             <div className="divsLinks">
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Asociados
-              </h3>
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              </h4>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Terminos de uso
-              </h3>
+              </h4>
             </div>
             <div className="divsLinks">
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Privacidad
-              </h3>
-              <h3 to="/login" style={{ color: "#e5e5e5" }}>
+              </h4>
+              <h4 to="/login" style={{ color: "#e5e5e5" }}>
                 Contacto
-              </h3>
+              </h4>
             </div>
           </section>
         </div>
