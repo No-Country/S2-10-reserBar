@@ -74,9 +74,7 @@ export default function CardStaff({ Date1 }) {
         <CardContent>
           <Typography paragraph>Datos a destacar:</Typography>
           <Typography paragraph>{Date1.paragraph1}</Typography>
-          <Typography paragraph>{Date1.paragraph2}</Typography>
-          <Typography paragraph>{Date1.paragraph3}</Typography>
-          <Typography paragraph>{Date1.paragraph4}</Typography>
+         
         </CardContent>
       </Collapse>
     </Card>
