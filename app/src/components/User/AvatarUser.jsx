@@ -12,7 +12,7 @@ const AvatarUser = () => {
           padding: "0%",
           borderRadius: "50%",
         }}
-        src="https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/11/23/5fbb9aab2a39d.jpeg"
+        src="https://cdn.pixabay.com/photo/2021/11/24/05/19/user-6820232_960_720.png"
       />
     </div>
   );

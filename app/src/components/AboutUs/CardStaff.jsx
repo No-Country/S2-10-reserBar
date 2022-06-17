@@ -33,10 +33,11 @@ export default function CardStaff({ Date1 }) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
+        minWidth: 345,
         background: "#14213D",
         color: "#fff",
-        marginLeft: "20px",
+        margin: "10px",
+        borderRadius: "10px",
       }}
     >
       <CardHeader

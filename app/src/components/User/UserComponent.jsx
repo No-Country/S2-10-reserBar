@@ -16,6 +16,7 @@ const UserComponent = () => {
   const [readState, setReadState] = useState(true);
   const dispatch = useDispatch();
   const authToken = useSelector((state) => state.user.token);
+  const userData = useSelector((state) => state.user.data);
 
   const Read = () => {
     if (readState == true) {
@@ -45,11 +46,11 @@ const UserComponent = () => {
                   <EditIcon />
                 </IconButton>
               </div>
-              <h1>Datos Cuentas</h1>
+              <h1>Cuenta</h1>
               <Box
                 component="form"
                 sx={{
-                  "& .MuiTextField-root": { m: 1, width: "80%" },
+                  "& .MuiTextField-root": { m: 1, width: "100%" },
                 }}
                 noValidate
                 autoComplete="off"
@@ -59,7 +60,7 @@ const UserComponent = () => {
                     fullWidth
                     id="outlined-read-only-input"
                     label="Usuario"
-                    defaultValue="Usuario"
+                    defaultValue={userData.name}
                     InputProps={{
                       readOnly: readState,
                     }}
@@ -68,7 +69,7 @@ const UserComponent = () => {
                     fullWidth
                     id="outlined-read-only-input"
                     label="Email"
-                    defaultValue="Email"
+                    defaultValue={userData.email}
                     InputProps={{
                       readOnly: readState,
                     }}
@@ -92,7 +93,7 @@ const UserComponent = () => {
                     fullWidth
                     id="outlined-read-only-input"
                     label="Nombre y Apellidos"
-                    defaultValue="Nombre y Apellidos"
+                    defaultValue={userData.name + " " + userData.last_name}
                     InputProps={{
                       readOnly: readState,
                     }}
@@ -101,7 +102,7 @@ const UserComponent = () => {
                     fullWidth
                     id="outlined-read-only-input"
                     label="Documentos"
-                    defaultValue="Documentos"
+                    defaultValue="Documento"
                     InputProps={{
                       readOnly: readState,
                     }}
@@ -136,8 +137,8 @@ const UserComponent = () => {
                   <TextField
                     fullWidth
                     id="outlined-read-only-input"
-                    label="Dirreccion"
-                    defaultValue="Dirreccion"
+                    label="Dirección"
+                    defaultValue="Dirección"
                     InputProps={{
                       readOnly: readState,
                     }}

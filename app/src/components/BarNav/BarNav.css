@@ -55,3 +55,10 @@
 .menuImg{
     width: -webkit-fill-available;
 }
+
+@media (max-width: 976px) {
+    .BarOptions{
+        margin-right: 0;
+    }
+    
+}

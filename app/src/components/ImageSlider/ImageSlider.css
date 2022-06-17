@@ -52,9 +52,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 4rem;
-    background-color: rgba(0, 0, 0, 0.344);
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  @media (max-width: 976px) {
+    .BarTitle{
+      font-size: 1.5rem;
+    }
   }
 
   

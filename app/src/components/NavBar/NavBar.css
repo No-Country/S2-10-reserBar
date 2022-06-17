@@ -68,12 +68,17 @@ hr{
 @media (max-width: 976px) {
     .navLinks {
       flex-direction: column;
+      align-items: flex-end;
     }
     .logoRB{
         display: none;
     }
     .logoRBCelu{
         display: block;
-        margin: 1.2rem;
+        margin-left: 1rem;
+    }
+    li{
+        
+        margin-right: 1rem; 
     }
   }
