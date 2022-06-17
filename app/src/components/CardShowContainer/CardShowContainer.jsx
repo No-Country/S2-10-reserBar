@@ -9,19 +9,22 @@ export const CardShowContainer = () => {
   const [current, setCurrent] = useState(0);
 
   const [mobile, setMobile] = useState({
-    matches: window.innerWidth > 768 ? true : false,
+    matches: window.innerWidth > 976 ? false : true,
   });
-
+  
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 976px)");
     mql.addEventListener("change", resize);
+    
     function resize(e) {
+      console.log("matches",e.matches);
       if (e.matches) {
         // If media query matches
-        setMobile(true);
+        setMobile({matches:true});
+        
       } else {
-        setMobile(false);
-        console.log(mobile);
+        setMobile({matches:false});
+        
       }
     }
     return () => {
@@ -45,16 +48,28 @@ export const CardShowContainer = () => {
   }
 
   const nextSlide = () => {
-    setCurrent(current === lengthBars - 1 ? 0 : current + 2);
+    if(lengthBars%2==0){
+      setCurrent(current >= lengthBars -2  ? 0 : current + 2);
+    }else{
+      setCurrent(current === lengthBars -1  ? 0 : current + 2);
+    }
+
+    
   };
 
   const prevSlide = () => {
-    setCurrent(current === 0 ? lengthBars - 1 : current - 2);
+    if(current==1){
+      setCurrent( lengthBars-1);
+    }else{
+      setCurrent(current <= 0 ? lengthBars-1  : current - 2);
+    }
+    
+    
   };
-  /* if (!Array.isArray(bars) || bars.lengthBares <= 0) {
+  if (!Array.isArray(bars) || bars.lengthBares <= 0) {
       return null;
-  } */
-
+  }
+  
   return (
     <section className="cardShowContainer">
       <h3 className="baresPopulares">Los bares más populares</h3>
@@ -67,7 +82,7 @@ export const CardShowContainer = () => {
         />
 
         {unBar || tresBares ? (
-          mobile ? (
+          mobile.matches ? (
             unBar.map((bar) => <BarCard bar={bar} key={bar._id} />)
           ) : (
             tresBares.map((bar) => <BarCard bar={bar} key={bar._id} />)

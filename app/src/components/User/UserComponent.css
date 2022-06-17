@@ -45,6 +45,7 @@
     background-color: #FCA311;
     padding: 10px;
     border-radius: 3px;
+    color: black;
 }
 
 @media (max-width: 976px) {
