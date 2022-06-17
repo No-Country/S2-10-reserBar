@@ -11,6 +11,10 @@ const BannerSlider = () => {
 
   let lengthBanners = arrayBanners.length;
 
+  setTimeout(() => {
+    return nextSlide()
+  }, 3000);
+
   const nextSlide = () => {
     setCurrent(current === lengthBanners - 1 ? 0 : current + 1);
   };
