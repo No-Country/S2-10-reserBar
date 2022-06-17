@@ -5,6 +5,7 @@
     width: 100%;
     border: none;
     background-color: #FCA311;
+    color: black;
 }
 
 .reservationButton-dashboard:hover {
