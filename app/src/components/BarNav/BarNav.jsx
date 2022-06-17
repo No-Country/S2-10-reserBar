@@ -29,12 +29,8 @@ const BarNav = ({ description }) => {
   if (options == 1 && authToken) {
     component = (
       <section className="containerCard">
-        <Reserve />
-        {/* <div className="cardLocal">
-      <p>{description.capacity}</p>
-      <button onClick={reserva}>Reservar</button>
-      <button>Cancelar reserva</button>
-      </div> */}
+         <Reserve props={description}/>
+    
       </section>
     );
   } else {

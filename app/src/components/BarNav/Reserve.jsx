@@ -1,29 +1,31 @@
 import { useParams } from "react-router";
 import axios from "axios";
-import "./Reserve.css";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "./Reserve.css";
+import { useState } from "react";
 import {useDispatch} from "react-redux";
 import { traerUsuario } from "../../store/actions/usersActions";
 
-export const Reserve = () => {
+export const Reserve = (props) => {
   const id_bar = useParams().id;
   const authToken = useSelector((state) => state.user.token)
-  const user_id = useSelector((state) => state.user.data._id)
-
+  const userData = useSelector((state) => state.user.data);
   const [date, setDate] = useState(" ");
   const [time, setTime] = useState(" ");
   const [visitors, setVisitors] = useState(Number);
+  const todayNum = new Date();
+
+const actualDate = new Date()
+let today = actualDate.getFullYear()+'-'+(actualDate.getMonth()+1).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+'-'+actualDate.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
   const dispatch = useDispatch();
   
-
   const reservar = () => {
     var config = {
       method: "put",
       url: `https://reserbar-api.herokuapp.com/api/bares/${id_bar}/reserve`,
       headers: { Authorization: `Bearer ${authToken}` },
       data: {
-        user: user_id,
+        user: userData._id,
         "date":date,
         "visitors":visitors,
         "time":time
@@ -32,40 +34,32 @@ export const Reserve = () => {
 
     axios(config)
       .then(function (response) {
-        
-        dispatch(traerUsuario(authToken,user_id))
-        
+        dispatch(traerUsuario(authToken,userData._id))
+        setVisitors(" "),
+        setDate(" "),
+        setTime(" ")
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  const eliminaReservar = () => {
+  const eliminaReserva = (date) => {
     var config = {
       method: "put",
       url: `https://reserbar-api.herokuapp.com/api/bares/${id_bar}/unreserve`,
       headers: { Authorization: `Bearer ${authToken}` },
       data: {
-        user: user,
-        date:"date",
-        email:"andresrubio@reserbar.com",
+        user: userData._id,
+        date: date,
+        email: userData.email,
       },
     };
-    <input
-      id="effective-date"
-      type="date"
-      name="effective-date"
-      minlength="1"
-      maxlength="64"
-      placeholder=" "
-      autocomplete="nope"
-      required="required"
-    ></input>;
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        dispatch(traerUsuario(authToken,userData._id));
+        alert(JSON.stringify(response.data));
       })
       .catch(function (error) {
         console.log(error);
@@ -74,20 +68,28 @@ export const Reserve = () => {
 
 
 
+
+
+
+
+
   return (
     <div className="reserveBox">
+      
+
       {date == " " ? (
         <>
-          <label>Cuando nos visitaran? </label>
-          <input type="date" onChange={(e) => setDate(e.target.value)} />
+          <h3>Cuando nos visitaran? </h3>
+          <input type="date" min={today} className="reserveInput" onChange={(e) => setDate(e.target.value)} />
         </>
       ) : (
         <></>
       )}
       {time == " " && date != " " ? (
         <>
-          <label>Elige un horario </label>
-          <select name="time" onChange={(e) => setTime(e.target.value)}>
+          <h3>Elige un horario </h3>
+          <select className="reserveInput" name="time" onChange={(e) => setTime(e.target.value)}>
+            <option value=" "></option>
             <option value="19:00">19:00</option>
             <option value="20:00">20:00</option>
             <option value="21:00">21:00</option>
@@ -100,8 +102,9 @@ export const Reserve = () => {
       )}
       {time != " " ? (
         <>
-          <label>Cuantos nos visitan </label>
+          <h3>Cuantos nos visitan </h3>
           <input
+          className="reserveInput" 
             type="number"
             min="0"
             max="10"
@@ -111,9 +114,47 @@ export const Reserve = () => {
       ) : (
         <></>
       )}
-
-      <button onClick={(e) => reservar()}>Reservar</button>
-      <button onClick={(e) => eliminaReservar()}>Cancelar reserva</button>
+      {visitors != " " ? (
+        <button onClick={(e) => reservar()}>Reservar</button>
+      ):(
+        <button disabled>Reservar</button>
+      )}
+      {userData.my_reserve.filter(reserve => reserve.idBar == id_bar) === [] ? (<></>):(
+        <table className="reserveList">
+          <tbody>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Visitantes</th>
+              <th>Estado</th>
+            </tr>
+            {
+            userData.my_reserve.filter(reserve => reserve.idBar == id_bar).map((reserva, index) => (
+              <tr key={index}>
+                
+                <td>{reserva.date ? reserva.date : "No esta disponible"}</td>
+                <td>{reserva.time ? reserva.time : "No esta disponible"}</td>
+                <td>{reserva.visitors}</td>
+                <th className="reserveState">
+                  {todayNum >= new Date(reserva.date) ? (
+                    <><span className="finishedReserve"> Finalizada</span></>
+                  ) : (
+                   <> 
+                      
+                      <p className="confirmReserve">Confirmada</p>
+                      <a onClick={(e) => eliminaReserva(reserva.date)} className="deleteReserve">
+                        Eliminar
+                      </a>
+                    
+                    </>)}
+                </th>
+              </tr>
+            )) }
+            </tbody>
+          </table>   
+            )}
+        
+  
     </div>
   );
 };
