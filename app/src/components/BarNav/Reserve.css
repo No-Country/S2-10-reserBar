@@ -14,5 +14,38 @@ align-items: center;
     padding: 5px;
     background-color: #FCA311;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 3px 0px 4px rgb(255 255 255 / 15%);
+    margin: 15px;
+}
+.reserveList{
+width: 85%;
+font-size: 0.85rem;
 }
 
+.deleteReserve{
+    color: red;
+    align-self: center;
+    -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+}
+.deleteReserve:hover{
+    text-decoration: underline;
+}
+.deleteReserve:active{
+    text-decoration: none;
+}
+
+
+.confirmReserve{
+    color: #33a433;
+}
+
+.finishedReserve{
+    color: #000da0;
+}
+
+.reserveState{
+display: flex;
+justify-content: space-between;
+}
