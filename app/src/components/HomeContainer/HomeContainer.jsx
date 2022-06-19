@@ -1,13 +1,17 @@
 import React from "react";
 import "./HomeContainer.css";
-import BannerSlider from "../BannerSlider/BannerSlider"
+// import BannerSlider from "../BannerSlider/BannerSlider"
 import { CardShowContainer } from "../CardShowContainer/CardShowContainer";
+import SlideLele from "../BannerSlider/SlideLele";
+import imgData from "../BannerSlider/imgData";
+
 
 const HomeContainer = () => {
   return (
     <div className="home">
     
-      <BannerSlider/>
+      {/* <BannerSlider/> */}
+      <SlideLele images={imgData}/>
     </div>
   );
 };
