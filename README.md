@@ -3,25 +3,20 @@
 ## Description
 
 This is our project for the NoCountry program.
-It is booking app made with React and Node Js.
+It is booking app made with MERN Stack.
 
 ## Built with
 
 - React
+- Material UI
 - Node Js
-- Etc...
+- Express
+- MongoDB
 
-## How to set it up
+## Deploy
 
-- Clone this repository
-- In the project directory, run: npm i
-- In the project directory, run: npm start
-- Open http://localhost:3000 to view it in your browser
+- [ReserBar](https://reserbar.netlify.app)
 
 ## Update
 
-Deploy: coming soon
-
-## Update
-
-_Last update: 05/20/2022._
+_Last update: 06/21/2022._
