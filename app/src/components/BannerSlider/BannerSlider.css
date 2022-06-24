@@ -3,6 +3,7 @@
     height: auto;
     border-radius: 10px;
     max-height: 25rem;
+    position: relative;
 }
 
 .sliderLele {
@@ -15,6 +16,25 @@
     height: 100%;
     
 }
+.BarTitle{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 3;
+  }
+
+  @media (max-width: 976px) {
+    .BarTitle{
+      font-size: 1.5rem;
+    }
+  }
 
 @media (max-width: 961px) {
   .sliderLele {
